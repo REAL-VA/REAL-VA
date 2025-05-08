@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Reports - REAL LMS</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f3f0ff;
+      padding: 40px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #5a189a;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background: white;
+      margin: 10px auto;
+      padding: 15px;
+      width: 80%;
+      max-width: 500px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #5a189a;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h2>Reports</h2>
+  <ul id="reportList"></ul>
+  <a href="admin-dashboard.html">← Back to Dashboard</a>
+
+  <script>
+    if (!localStorage.getItem("loggedInUser")) {
+      window.location.href = "signin-landing.html";
+    }
+
+    const reports = JSON.parse(localStorage.getItem("reports") || "[]");
+    const list = document.getElementById("reportList");
+
+    if (reports.length === 0) {
+      list.innerHTML = "<li>No reports found.</li>";
+    } else {
+      reports.forEach(r => {
+        const li = document.createElement("li");
+        li.textContent = `Report: ${r.title} - ${r.summary}`;
+        list.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Reports - REAL LMS</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f3f0ff;
+      padding: 40px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #5a189a;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background: white;
+      margin: 10px auto;
+      padding: 15px;
+      width: 80%;
+      max-width: 500px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #5a189a;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h2>Reports</h2>
+  <ul id="reportList"></ul>
+  <a href="admin-dashboard.html">← Back to Dashboard</a>
+
+  <script>
+    if (!localStorage.getItem("loggedInUser")) {
+      window.location.href = "signin-landing.html";
+    }
+
+    const reports = JSON.parse(localStorage.getItem("reports") || "[]");
+    const list = document.getElementById("reportList");
+
+    if (reports.length === 0) {
+      list.innerHTML = "<li>No reports found.</li>";
+    } else {
+      reports.forEach(r => {
+        const li = document.createElement("li");
+        li.textContent = `Report: ${r.title} - ${r.summary}`;
+        list.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Reports - REAL LMS</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f3f0ff;
+      padding: 40px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #5a189a;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background: white;
+      margin: 10px auto;
+      padding: 15px;
+      width: 80%;
+      max-width: 500px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #5a189a;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h2>Reports</h2>
+  <ul id="reportList"></ul>
+  <a href="admin-dashboard.html">← Back to Dashboard</a>
+
+  <script>
+    if (!localStorage.getItem("loggedInUser")) {
+      window.location.href = "signin-landing.html";
+    }
+
+    const reports = JSON.parse(localStorage.getItem("reports") || "[]");
+    const list = document.getElementById("reportList");
+
+    if (reports.length === 0) {
+      list.innerHTML = "<li>No reports found.</li>";
+    } else {
+      reports.forEach(r => {
+        const li = document.createElement("li");
+        li.textContent = `Report: ${r.title} - ${r.summary}`;
+        list.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>

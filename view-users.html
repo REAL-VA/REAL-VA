@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Users - REAL LMS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #edeaff, #e6e6ff);
+      margin: 0;
+    }
+
+    header, footer {
+      background-color: #5a189a;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: white;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h2 {
+      color: #5a189a;
+      margin-bottom: 20px;
+    }
+
+    .back-button {
+      padding: 12px 24px;
+      background-color: #5a189a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .back-button:hover {
+      background-color: #7b2cbf;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>View Users</h1>
+  </header>
+
+  <div class="container">
+    <h2>Registered Users</h2>
+    <p>(User table goes here)</p>
+    <button class="back-button" onclick="goBack()">Back</button>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 REAL LMS. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+</body>
+
+</html>

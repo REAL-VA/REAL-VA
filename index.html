@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>REAL LMS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #edeaff, #e6e6ff);
+      color: #333;
+    }
+
+    header {
+      background-color: #5a189a;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      background-color: #7b2cbf;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      flex-wrap: wrap;
+    }
+
+    nav .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #e0c3fc;
+    }
+
+    .subjects {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .subjects h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #5a189a;
+    }
+
+    .subject-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .subject {
+      background-color: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .subject:hover {
+      transform: translateY(-8px);
+    }
+
+    .subject h3 {
+      color: #7b2cbf;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    .subject p {
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .subject iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .subject button {
+      background-color: #5a189a;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 5px;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    .subject button:hover {
+      background-color: #9d4edd;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #5a189a;
+      color: white;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1><i class="fas fa-graduation-cap"></i> REAL</h1>
+  </header>
+
+  <nav>
+    <div class="logo"><i class="fas fa-book-reader"></i> REAL</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="about.html">About</a></li> <!-- Link to About Us page -->
+      <li><a href="contact.html">Contact</a></li> <!-- Link to Contact Us page -->
+      <li><a href="signin-landing.html"><i class="fas fa-sign-in-alt"></i> Sign In</a></li>
+    </ul>
+  </nav>
+
+  <section class="subjects">
+    <h2>Available Subjects</h2>
+    <div class="subject-grid">
+      <div class="subject">
+        <h3><i class="fas fa-pen-nib"></i> Advanced Grammar Training</h3>
+        <iframe src="https://www.youtube.com/embed/Fu9gftY7U7s" allowfullscreen></iframe>
+        <p>Master complex grammar rules and sentence structures.</p>
+        <button onclick="redirectTo('advanced-grammar.html')">View Lessons</button>
+      </div>
+      <div class="subject">
+        <h3><i class="fas fa-chart-line"></i> HubSpot Essentials</h3>
+        <iframe src="https://www.youtube.com/embed/vtZiKYNv_gk" allowfullscreen></iframe>
+        <p>Learn the key features of HubSpot for CRM and marketing.</p>
+        <button onclick="redirectTo('hubspot-essentials.html')">View Lessons</button>
+      </div>
+      <div class="subject">
+        <h3><i class="fas fa-spell-check"></i> Basic Grammar Training</h3>
+        <iframe src="https://www.youtube.com/embed/LGqDVIx0C2A" allowfullscreen></iframe>
+        <p>Solid foundation for beginners in English grammar.</p>
+        <button onclick="redirectTo('basic-grammar.html')">View Lessons</button>
+      </div>
+      <div class="subject">
+        <h3><i class="fas fa-robot"></i> Teacher AI</h3>
+        <iframe src="https://www.youtube.com/embed/g1mxnSh2jzU" allowfullscreen></iframe>
+        <p>Utilize AI tools for smart and effective teaching.</p>
+        <button onclick="redirectTo('teacher-ai.html')">View Lessons</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 REAL LMS. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function redirectTo(page) {
+      window.location.href = page;
+    }
+  </script>
+</body>
+
+</html>
