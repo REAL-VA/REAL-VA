@@ -86,8 +86,9 @@
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     }
 
-    .video-wrapper video {
+    .video-wrapper iframe {
       width: 100%;
+      height: 480px;
       border-radius: 10px;
     }
 
@@ -180,14 +181,15 @@
 
     <!-- Video Rectangle Section -->
     <div class="video-wrapper">
-      <video controls>
-        <source src="Screen Recording 2024-09-23 183424.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+      <iframe width="100%" height="480" src="https://www.youtube.com/embed/XRdMO_--cFY"
+        title="REAL VA Intro Video" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
 
       <p>Welcome to REAL LMS - Watch this intro video to get started!</p>
     </div>
-<h2>Available Subjects</h2>
+
+    <h2>Available Subjects</h2>
     <div class="subject-grid">
       <div class="subject">
         <h3><i class="fas fa-pen-nib"></i> Advanced Grammar Training</h3>
