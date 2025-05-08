@@ -25,6 +25,7 @@
       color: white;
       padding: 60px 20px;
       text-align: center;
+      position: relative;
     }
 
     header h1 {
@@ -71,18 +72,34 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 60px 20px;
+      padding: 80px 20px;
+      position: relative;
     }
 
     .contact-card {
       background-color: white;
       max-width: 600px;
       width: 100%;
-      border-radius: 16px;
-      padding: 40px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      padding: 50px 30px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
       text-align: center;
       animation: fadeIn 1s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-card::before {
+      content: "\f0e0";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      font-size: 120px;
+      color: #f0e8ff;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      opacity: 0.1;
+      z-index: 0;
     }
 
     .contact-card h2 {
@@ -100,26 +117,33 @@
     .contact-detail {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 12px;
+      gap: 15px;
+      background-color: #f8f5ff;
+      padding: 12px 20px;
+      border-radius: 10px;
       margin-bottom: 15px;
-      font-size: 1rem;
-      color: #333;
+      transition: background 0.3s ease;
+    }
+
+    .contact-detail:hover {
+      background-color: #eae2ff;
     }
 
     .contact-detail i {
       color: #7b2cbf;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
+      min-width: 24px;
     }
 
-    .contact-detail a {
-      color: #7b2cbf;
+    .contact-detail a, .contact-detail span {
+      color: #333;
+      font-size: 1rem;
       text-decoration: none;
-      transition: text-decoration 0.3s ease;
+      transition: color 0.3s ease;
     }
 
     .contact-detail a:hover {
-      text-decoration: underline;
+      color: #5a189a;
     }
 
     footer {
@@ -127,7 +151,7 @@
       background-color: #5a189a;
       color: white;
       padding: 20px;
-      margin-top: 40px;
+      margin-top: 60px;
     }
 
     @keyframes fadeIn {
@@ -175,7 +199,7 @@
   <section class="contact-section">
     <div class="contact-card">
       <h2>Get in Touch</h2>
-      <p>We're here to help. Reach out to us anytime!</p>
+      <p>We'd love to hear from you. Reach out anytime!</p>
 
       <div class="contact-detail">
         <i class="fas fa-map-marker-alt"></i>
@@ -190,6 +214,11 @@
       <div class="contact-detail">
         <i class="fas fa-envelope"></i>
         <a href="mailto:support@reallms.com">support@reallms.com</a>
+      </div>
+
+      <div class="contact-detail">
+        <i class="fab fa-facebook-square"></i>
+        <a href="https://www.facebook.com/reallms" target="_blank">facebook.com/reallms</a>
       </div>
     </div>
   </section>
