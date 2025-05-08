@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About Us - REAL LMS</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -16,7 +15,7 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #f4f0ff, #e6e6ff);
+      background: linear-gradient(to right, #edeaff, #e6e6ff);
       color: #333;
       line-height: 1.6;
     }
@@ -29,8 +28,9 @@
     }
 
     header h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
       font-weight: 700;
+      letter-spacing: 2px;
     }
 
     nav {
@@ -43,22 +43,22 @@
     }
 
     nav .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
+      font-size: 2rem;
+      font-weight: 700;
       color: #fff;
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 20px;
       flex-wrap: wrap;
+      gap: 20px;
     }
 
     nav ul li a {
       color: white;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: bold;
       transition: color 0.3s;
     }
 
@@ -68,67 +68,58 @@
 
     .about-section {
       padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
+      text-align: center;
     }
 
     .about-section h2 {
       font-size: 2.5rem;
+      margin-bottom: 40px;
       color: #5a189a;
-      margin-bottom: 30px;
-      text-align: center;
     }
 
-    .about-paragraph {
-      background: #fff;
+    .about-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .about-content h3 {
+      font-size: 1.8rem;
+      color: #7b2cbf;
+      margin-bottom: 15px;
+    }
+
+    .text-box {
+      background-color: #fff;
       border-left: 6px solid #7b2cbf;
       padding: 20px;
       margin-bottom: 25px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    }
-
-    .about-paragraph h3 {
-      color: #7b2cbf;
-      margin-bottom: 10px;
-      font-size: 1.5rem;
-    }
-
-    .about-paragraph p {
-      font-size: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
     }
 
     .vision-mission-values {
       display: flex;
+      justify-content: space-between;
       flex-wrap: wrap;
       gap: 20px;
-      justify-content: space-between;
-      margin: 40px 0;
+      margin-bottom: 40px;
     }
 
-    .card {
-      background: #fff;
-      flex: 1;
-      min-width: 250px;
+    .vision, .mission, .core-values {
+      background-color: white;
+      border-radius: 12px;
       padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      flex: 1;
+      min-width: 280px;
       text-align: center;
     }
 
-    .card h4 {
-      color: #5a189a;
-      font-size: 1.3rem;
+    .vision h4, .mission h4, .core-values h4 {
+      font-size: 1.5rem;
+      color: #7b2cbf;
       margin-bottom: 10px;
-    }
-
-    .card p {
-      font-size: 1rem;
-    }
-
-    .feedback-section {
-      margin-top: 60px;
-      text-align: center;
     }
 
     .feedback-form {
@@ -136,22 +127,19 @@
       flex-direction: column;
       gap: 20px;
       align-items: center;
-      margin-top: 20px;
+      margin-top: 30px;
     }
 
-    .feedback-form input,
-    .feedback-form textarea,
-    .feedback-form button {
+    .feedback-form input, .feedback-form textarea, .feedback-form button {
       padding: 12px;
-      width: 100%;
-      max-width: 500px;
       font-size: 1rem;
       border-radius: 6px;
-      border: 1px solid #ccc;
+      border: 1px solid #ddd;
+      width: 100%;
+      max-width: 500px;
     }
 
-    .feedback-form input:focus,
-    .feedback-form textarea:focus {
+    .feedback-form input:focus, .feedback-form textarea:focus {
       border-color: #7b2cbf;
       outline: none;
     }
@@ -159,9 +147,9 @@
     .feedback-form button {
       background-color: #7b2cbf;
       color: white;
-      border: none;
-      font-weight: bold;
       cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
     }
 
     .feedback-form button:hover {
@@ -169,14 +157,18 @@
     }
 
     .back-button {
-      margin-top: 30px;
       background-color: #ccc;
       color: black;
-      padding: 10px 20px;
-      border: none;
+      padding: 12px;
+      margin-top: 30px;
       border-radius: 6px;
       font-size: 1rem;
       cursor: pointer;
+      width: 100%;
+      max-width: 200px;
+      border: none;
+      text-align: center;
+      transition: background-color 0.3s;
     }
 
     .back-button:hover {
@@ -188,15 +180,14 @@
       background-color: #5a189a;
       color: white;
       padding: 20px;
-      margin-top: 60px;
+      margin-top: 40px;
     }
   </style>
 </head>
 
 <body>
-
   <header>
-    <h1><i class="fas fa-info-circle"></i> About Us</h1>
+    <h1>About Us</h1>
   </header>
 
   <nav>
@@ -204,59 +195,54 @@
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#">Contact</a></li>
       <li><a href="signin-landing.html"><i class="fas fa-sign-in-alt"></i> Sign In</a></li>
     </ul>
   </nav>
 
   <section class="about-section">
     <h2>Welcome to REAL LMS</h2>
-
-    <div class="about-paragraph">
+    <div class="about-content">
       <h3>Our Vision</h3>
-      <p>We envision a future where learners from all backgrounds have equal access to high-quality educational resources that enable them to grow, innovate, and succeed in their chosen fields.</p>
-    </div>
+      <div class="text-box">
+        <p>We envision a future where learners from all backgrounds have equal access to high-quality educational resources that enable them to grow, innovate, and succeed in their chosen fields.</p>
+      </div>
 
-    <div class="about-paragraph">
       <h3>Our Mission</h3>
-      <p>To provide a comprehensive learning management system that supports both educators and students, offering tools for effective learning, personal development, and professional growth.</p>
-    </div>
-
-    <div class="about-paragraph">
-      <h3>What We Stand For</h3>
-      <p>REAL LMS stands for Reliability, Education, Accessibility, and Leadership. We aim to become the backbone of digital learning across institutions and personal learning journeys.</p>
-    </div>
-
-    <div class="vision-mission-values">
-      <div class="card">
-        <h4>Vision</h4>
-        <p>Empowering learners for a brighter tomorrow.</p>
+      <div class="text-box">
+        <p>To provide a comprehensive learning management system that supports both educators and students, offering tools for effective learning, personal development, and professional growth.</p>
       </div>
-      <div class="card">
-        <h4>Mission</h4>
-        <p>Delivering innovative and accessible education worldwide.</p>
-      </div>
-      <div class="card">
-        <h4>Core Values</h4>
-        <p>Integrity, Innovation, Collaboration, Excellence, Inclusivity.</p>
-      </div>
-    </div>
 
-    <div class="about-paragraph">
+      <h3>Core Values</h3>
+      <div class="vision-mission-values">
+        <div class="vision">
+          <h4>Vision</h4>
+          <p>Empowering learners for a brighter tomorrow.</p>
+        </div>
+        <div class="mission">
+          <h4>Mission</h4>
+          <p>Delivering innovative and accessible education worldwide.</p>
+        </div>
+        <div class="core-values">
+          <h4>Core Values</h4>
+          <p>Integrity, Innovation, Collaboration, Excellence, Inclusivity.</p>
+        </div>
+      </div>
+
       <h3>Get in Touch</h3>
-      <p>If you have any questions, feedback, or just want to say hello, our team would love to hear from you!</p>
-    </div>
+      <div class="text-box">
+        <p>If you have any questions or feedback, feel free to reach out to us!</p>
+      </div>
 
-    <div class="feedback-section">
-      <form class="feedback-form">
+      <div class="feedback-form">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
         <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
         <button type="submit">Send Message</button>
-      </form>
+      </div>
+
       <button class="back-button" onclick="goBack()">Back to Home</button>
     </div>
-
   </section>
 
   <footer>
@@ -268,7 +254,5 @@
       window.location.href = 'index.html';
     }
   </script>
-
 </body>
-
 </html>
