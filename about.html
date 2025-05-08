@@ -66,12 +66,12 @@
       color: #e0c3fc;
     }
 
-    .about-section {
+    section {
       padding: 60px 20px;
-      text-align: center;
     }
 
-    .about-section h2 {
+    section h2 {
+      text-align: center;
       font-size: 2.5rem;
       margin-bottom: 40px;
       color: #5a189a;
@@ -80,22 +80,15 @@
     .about-content {
       max-width: 900px;
       margin: 0 auto;
-      text-align: left;
     }
 
-    .about-content h3 {
-      font-size: 1.8rem;
-      color: #7b2cbf;
-      margin-bottom: 15px;
-    }
-
-    .text-box {
+    .section-box {
       background-color: #fff;
       border-left: 6px solid #7b2cbf;
-      padding: 20px;
-      margin-bottom: 25px;
+      padding: 25px;
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      margin-bottom: 40px;
     }
 
     .vision-mission-values {
@@ -139,40 +132,15 @@
       max-width: 500px;
     }
 
-    .feedback-form input:focus, .feedback-form textarea:focus {
-      border-color: #7b2cbf;
-      outline: none;
-    }
-
     .feedback-form button {
       background-color: #7b2cbf;
       color: white;
       cursor: pointer;
       font-weight: bold;
-      transition: background-color 0.3s;
     }
 
     .feedback-form button:hover {
       background-color: #5a189a;
-    }
-
-    .back-button {
-      background-color: #ccc;
-      color: black;
-      padding: 12px;
-      margin-top: 30px;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
-      width: 100%;
-      max-width: 200px;
-      border: none;
-      text-align: center;
-      transition: background-color 0.3s;
-    }
-
-    .back-button:hover {
-      background-color: #999;
     }
 
     footer {
@@ -182,9 +150,26 @@
       padding: 20px;
       margin-top: 40px;
     }
+
+    .back-button {
+      background-color: #ccc;
+      color: black;
+      padding: 12px;
+      margin-top: 20px;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+      max-width: 200px;
+      border: none;
+      text-align: center;
+    }
+
+    .back-button:hover {
+      background-color: #999;
+    }
   </style>
 </head>
-
 <body>
   <header>
     <h1>About Us</h1>
@@ -195,33 +180,43 @@
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="contact.html">Contact</a></li>
       <li><a href="signin-landing.html"><i class="fas fa-sign-in-alt"></i> Sign In</a></li>
     </ul>
   </nav>
 
-  <section class="about-section">
+  <section>
     <h2>Welcome to REAL LMS</h2>
     <div class="about-content">
-      <h3>Our Vision</h3>
-      <div class="text-box">
-        <p>We envision a future where learners from all backgrounds have equal access to high-quality educational resources that enable them to grow, innovate, and succeed in their chosen fields.</p>
+      <div class="section-box">
+        <h3>Our Vision</h3>
+        <p>At REAL LMS, we envision a world where every learner has the power to access world-class education regardless of location, background, or ability. We believe in leveraging technology to break barriers and foster knowledge-sharing communities that are inclusive and globally connected.</p>
       </div>
 
-      <h3>Our Mission</h3>
-      <div class="text-box">
-        <p>To provide a comprehensive learning management system that supports both educators and students, offering tools for effective learning, personal development, and professional growth.</p>
+      <div class="section-box">
+        <h3>Our Mission</h3>
+        <p>Our mission is to provide a user-friendly, flexible, and innovative learning platform that empowers both students and educators. We aim to create personalized educational experiences, enhance collaboration, and promote lifelong learning through smart tools and modern design.</p>
       </div>
 
-      <h3>Core Values</h3>
+      <div class="section-box">
+        <h3>Core Values</h3>
+        <ul>
+          <li><strong>Integrity:</strong> We uphold transparency and honesty in everything we do.</li>
+          <li><strong>Innovation:</strong> We embrace change and use technology to solve educational challenges.</li>
+          <li><strong>Collaboration:</strong> We foster partnerships that encourage collective growth.</li>
+          <li><strong>Excellence:</strong> We pursue the highest standards in learning and development.</li>
+          <li><strong>Inclusivity:</strong> We believe in learning for all—anywhere, anytime.</li>
+        </ul>
+      </div>
+
       <div class="vision-mission-values">
         <div class="vision">
           <h4>Vision</h4>
-          <p>Empowering learners for a brighter tomorrow.</p>
+          <p>Empowering learners for a brighter, inclusive, and globally connected future.</p>
         </div>
         <div class="mission">
           <h4>Mission</h4>
-          <p>Delivering innovative and accessible education worldwide.</p>
+          <p>Delivering flexible, modern, and accessible learning experiences to everyone, everywhere.</p>
         </div>
         <div class="core-values">
           <h4>Core Values</h4>
@@ -229,19 +224,19 @@
         </div>
       </div>
 
-      <h3>Get in Touch</h3>
-      <div class="text-box">
-        <p>If you have any questions or feedback, feel free to reach out to us!</p>
-      </div>
+      <div class="section-box">
+        <h3>Get in Touch</h3>
+        <p>Have questions or feedback? We'd love to hear from you. Whether you're a student, educator, or institution, REAL LMS is here to support your learning goals. Let’s shape the future of education together.</p>
 
-      <div class="feedback-form">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </div>
+        <div class="feedback-form">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </div>
 
-      <button class="back-button" onclick="goBack()">Back to Home</button>
+        <button class="back-button" onclick="goBack()">Back to Home</button>
+      </div>
     </div>
   </section>
 
