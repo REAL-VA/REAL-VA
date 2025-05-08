@@ -77,6 +77,26 @@
       color: #5a189a;
     }
 
+    .video-wrapper {
+      max-width: 900px;
+      margin: 0 auto 40px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .video-wrapper p {
+      margin-top: 10px;
+      color: #5a189a;
+      font-weight: bold;
+    }
+
     .subject-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -150,14 +170,24 @@
     <div class="logo"><i class="fas fa-book-reader"></i> REAL</div>
     <ul>
       <li><a href="#">Home</a></li>
-      <li><a href="about.html">About</a></li> <!-- Link to About Us page -->
-      <li><a href="contact.html">Contact</a></li> <!-- Link to Contact Us page -->
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
       <li><a href="signin-landing.html"><i class="fas fa-sign-in-alt"></i> Sign In</a></li>
     </ul>
   </nav>
 
   <section class="subjects">
-    <h2>Available Subjects</h2>
+
+    <!-- Video Rectangle Section -->
+    <div class="video-wrapper">
+      <video controls>
+        <source src="Screen Recording 2024-09-23 183424.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <p>Welcome to REAL LMS - Watch this intro video to get started!</p>
+    </div>
+<h2>Available Subjects</h2>
     <div class="subject-grid">
       <div class="subject">
         <h3><i class="fas fa-pen-nib"></i> Advanced Grammar Training</h3>
