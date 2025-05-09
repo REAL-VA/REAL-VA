@@ -16,8 +16,22 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #edeaff, #e6e6ff);
+      background: linear-gradient(120deg, #edeaff, #e6e6ff);
+      background-size: 400% 400%;
+      animation: gradientBg 10s ease infinite;
       color: #333;
+    }
+
+    @keyframes gradientBg {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
     header {
@@ -25,12 +39,14 @@
       color: white;
       padding: 60px 20px;
       text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     header h1 {
       font-size: 3.5rem;
       font-weight: 700;
       letter-spacing: 2px;
+      text-shadow: 2px 2px 5px #000;
     }
 
     nav {
@@ -40,12 +56,14 @@
       align-items: center;
       padding: 15px 30px;
       flex-wrap: wrap;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     nav .logo {
       font-size: 2rem;
       font-weight: 700;
       color: #fff;
+      text-shadow: 1px 2px 5px #000;
     }
 
     nav ul {
@@ -59,11 +77,12 @@
       color: white;
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s;
+      transition: color 0.3s, transform 0.3s;
     }
 
     nav ul li a:hover {
       color: #e0c3fc;
+      transform: scale(1.1);
     }
 
     .subjects {
@@ -75,6 +94,7 @@
       font-size: 2.5rem;
       margin-bottom: 40px;
       color: #5a189a;
+      text-shadow: 1px 2px 5px #000;
     }
 
     .video-wrapper {
@@ -83,7 +103,7 @@
       background: #fff;
       padding: 20px;
       border-radius: 12px;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     }
 
     .video-wrapper iframe {
@@ -110,13 +130,14 @@
       background-color: white;
       border-radius: 12px;
       padding: 25px;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       text-align: center;
     }
 
     .subject:hover {
       transform: translateY(-8px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     }
 
     .subject h3 {
@@ -146,10 +167,12 @@
       border-radius: 5px;
       font-size: 0.95rem;
       cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
     }
 
     .subject button:hover {
       background-color: #9d4edd;
+      transform: scale(1.05);
     }
 
     footer {
@@ -158,6 +181,23 @@
       color: white;
       padding: 20px;
       margin-top: 40px;
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    footer .social-icons {
+      margin: 10px 0;
+    }
+
+    footer .social-icons a {
+      margin: 0 10px;
+      color: white;
+      font-size: 1.5rem;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    footer .social-icons a:hover {
+      color: #e0c3fc;
+      transform: scale(1.2);
     }
   </style>
 </head>
@@ -179,13 +219,9 @@
 
   <section class="subjects">
 
-    <!-- Video Rectangle Section -->
     <div class="video-wrapper">
-      <iframe width="100%" height="480" src="https://youtu.be/IMrRZBejMV4?si=j_jWcUcSHXu8mJ0F"
-        title="REAL VA Intro Video" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
-
+      <iframe width="100%" height="480" src="https://youtu.be/IMrRZBejMV4?si=j_jWcUcSHXu8mJ0F" title="REAL VA Intro Video" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       <p>Welcome to REAL LMS - Watch this intro video to get started!</p>
     </div>
 
@@ -220,6 +256,12 @@
 
   <footer>
     <p>&copy; 2025 REAL LMS. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
   </footer>
 
   <script>
