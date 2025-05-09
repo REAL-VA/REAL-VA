@@ -69,6 +69,23 @@
       margin-top: 10px;
     }
 
+    .link-container {
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }
+
+    .link-container a {
+      color: #5a189a;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .link-container a:hover {
+      color: #7b2cbf;
+      text-decoration: underline;
+    }
+
     .back-button {
       background-color: #ccc;
       color: black;
@@ -102,6 +119,14 @@
       <button type="submit">Login</button>
     </form>
     <p class="error-message" id="error-message"></p>
+
+    <!-- Links for Create Account and Forgot Password -->
+    <div class="link-container">
+      <p>
+        <a href="create-account.html">Create Account</a> | 
+        <a href="forgot-password.html">Forgot Password?</a>
+      </p>
+    </div>
 
     <!-- Back Button -->
     <button class="back-button" onclick="goBack()">Back to Home</button>
