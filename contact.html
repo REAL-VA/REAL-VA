@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>REAL LMS - Contact</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - REAL VA Training Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
@@ -16,22 +15,39 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #edeaff, #e6e6ff);
+      background-color: #f9f8ff;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%237b2cbf' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
       color: #333;
+      line-height: 1.6;
     }
 
     header {
-      background-color: #5a189a;
+      background: linear-gradient(135deg, #5a189a 0%, #7b2cbf 100%);
       color: white;
       padding: 60px 20px;
       text-align: center;
       position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+      z-index: 1;
     }
 
     header h1 {
       font-size: 3.5rem;
       font-weight: 700;
       letter-spacing: 2px;
+      position: relative;
+      z-index: 2;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     }
 
     nav {
@@ -41,12 +57,30 @@
       align-items: center;
       padding: 15px 30px;
       flex-wrap: wrap;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
-    .logo {
-      font-size: 2rem;
+    nav .logo {
+      font-size: 1.8rem;
       font-weight: 700;
       color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.3s ease;
+      text-decoration: none;
+    }
+
+    nav .logo:hover {
+      transform: scale(1.05);
+    }
+
+    nav .logo img {
+      height: 40px;
+      margin-right: 10px;
     }
 
     nav ul {
@@ -59,173 +93,434 @@
     nav ul li a {
       color: white;
       text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    nav ul li a:hover {
-      color: #e0c3fc;
-    }
-
-    .contact-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 80px 20px;
-      position: relative;
-    }
-
-    .contact-card {
-      background-color: white;
-      max-width: 600px;
-      width: 100%;
+      font-weight: 500;
+      padding: 8px 16px;
       border-radius: 20px;
-      padding: 50px 30px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      animation: fadeIn 1s ease;
+      transition: all 0.3s ease;
       position: relative;
       z-index: 1;
     }
 
-    .contact-card::before {
-      content: "\f0e0";
-      font-family: "Font Awesome 6 Free";
-      font-weight: 900;
-      font-size: 120px;
-      color: #f0e8ff;
+    nav ul li a::before {
+      content: "";
       position: absolute;
-      right: 20px;
-      top: 20px;
-      opacity: 0.1;
-      z-index: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      transition: height 0.3s ease;
+      z-index: -1;
     }
 
-    .contact-card h2 {
-      color: #5a189a;
+    nav ul li a:hover {
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    nav ul li a:hover::before {
+      height: 100%;
+    }
+
+    section {
+      padding: 60px 20px;
+    }
+
+    section h2 {
+      text-align: center;
       font-size: 2.5rem;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
+      color: #5a189a;
+      position: relative;
+      padding-bottom: 15px;
     }
 
-    .contact-card p {
-      font-size: 1.1rem;
-      margin-bottom: 30px;
-      color: #555;
+    section h2::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(to right, #7b2cbf, #e0c3fc);
+      border-radius: 2px;
     }
 
-    .contact-detail {
+    .about-content {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .section-box {
+      background-color: #fff;
+      border-left: 6px solid #7b2cbf;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      margin-bottom: 40px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(to right, #7b2cbf, #e0c3fc);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
+    }
+
+    .section-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(123, 44, 191, 0.15);
+    }
+
+    .section-box:hover::before {
+      transform: scaleX(1);
+    }
+
+    .section-box h3 {
+      color: #5a189a;
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .contact-info-items {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-item {
       display: flex;
       align-items: center;
-      gap: 15px;
-      background-color: #f8f5ff;
-      padding: 12px 20px;
+      padding: 15px;
+      background-color: #f9f8ff;
       border-radius: 10px;
-      margin-bottom: 15px;
-      transition: background 0.3s ease;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      border-left: 3px solid #7b2cbf;
     }
 
-    .contact-detail:hover {
-      background-color: #eae2ff;
+    .contact-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(to right, #7b2cbf, #e0c3fc);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
     }
 
-    .contact-detail i {
+    .contact-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(123, 44, 191, 0.1);
+      background-color: #fff;
+    }
+
+    .contact-item:hover::before {
+      transform: scaleX(1);
+    }
+
+    .contact-item i {
+      font-size: 1.5rem;
       color: #7b2cbf;
-      font-size: 1.4rem;
-      min-width: 24px;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(123, 44, 191, 0.1);
+      border-radius: 50%;
+      margin-right: 15px;
+      transition: all 0.3s ease;
     }
 
-    .contact-detail a, .contact-detail span {
+    .contact-item:hover i {
+      background-color: #7b2cbf;
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    .contact-item .content {
+      flex: 1;
+    }
+
+    .contact-item a {
       color: #333;
-      font-size: 1rem;
       text-decoration: none;
+      font-weight: 500;
       transition: color 0.3s ease;
+      display: block;
     }
 
-    .contact-detail a:hover {
-      color: #5a189a;
+    .contact-item a:hover {
+      color: #7b2cbf;
     }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background-color: #7b2cbf;
+      color: white;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      font-size: 1.2rem;
+    }
+
+    .social-links a:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(123, 44, 191, 0.3);
+      background-color: #5a189a;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 12px 15px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 2px solid #e6e6ff;
+      width: 100%;
+      transition: all 0.3s ease;
+      background-color: #f9f8ff;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #7b2cbf;
+      box-shadow: 0 0 0 3px rgba(123, 44, 191, 0.1);
+      background-color: #fff;
+    }
+
+    .contact-form button {
+      padding: 12px 24px;
+      font-size: 1rem;
+      border-radius: 30px;
+      border: none;
+      background: linear-gradient(135deg, #7b2cbf 0%, #5a189a 100%);
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .contact-form button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: all 0.6s ease;
+      z-index: -1;
+    }
+
+    .contact-form button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(123, 44, 191, 0.3);
+    }
+
+    .contact-form button:hover::before {
+      left: 100%;
+    }
+
+
 
     footer {
       text-align: center;
-      background-color: #5a189a;
+      background: linear-gradient(135deg, #5a189a 0%, #7b2cbf 100%);
       color: white;
-      padding: 20px;
-      margin-top: 60px;
+      padding: 30px 20px;
+      margin-top: 40px;
+      position: relative;
+      overflow: hidden;
+      height: 150px;
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+      z-index: 1;
     }
 
-    @media (max-width: 600px) {
-      .contact-card {
-        padding: 30px 20px;
-      }
+    footer p {
+      position: relative;
+      z-index: 2;
+    }
 
+    .logo-svg {
+      width: 180px;
+      height: auto;
+      margin-right: 10px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      nav ul {
+        justify-content: center;
+      }
+      
       header h1 {
         font-size: 2.5rem;
       }
+      
+      .section-box {
+        padding: 20px;
+      }
+      
+      .contact-item {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .contact-item i {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+      
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+    }
 
-      .contact-card h2 {
-        font-size: 2rem;
+    @media (max-width: 576px) {
+      .office-hours {
+        flex-direction: column;
       }
     }
   </style>
 </head>
-
 <body>
   <header>
-    <h1><i class="fas fa-graduation-cap"></i> REAL LMS</h1>
+    <h1>CONTACT US</h1>
   </header>
 
   <nav>
-    <div class="logo"><i class="fas fa-book-reader"></i> REAL</div>
+    <a href="index.html" class="logo">
+        <div class="logo">
+            <img src="image.png" alt="REAL LMS Logo" style="height: 120px; width: auto;">
+          </div>
+          <ul>
+          <!-- Monitor outline -->
+    </a>
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="signin-landing.html"><i class="fas fa-sign-in-alt"></i> Sign In</a></li>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+      <li><a href="signin.html"><i class="fas fa-user"></i> SIGN IN</a></li>
     </ul>
   </nav>
 
-  <section class="contact-section">
-    <div class="contact-card">
-      <h2>Get in Touch</h2>
-      <p>We'd love to hear from you. Reach out anytime!</p>
-
-      <div class="contact-detail">
-        <i class="fas fa-map-marker-alt"></i>
-        <span>123 Learning Avenue, Education City, 12345</span>
+  <section>
+    <h2>Get in Touch</h2>
+    <div class="about-content">
+      <!-- Left Container: Contact Information -->
+      <div class="section-box">
+        <h3>Contact Information</h3>
+        <p>Have questions or feedback? We'd love to hear from you. Whether you're looking to become a virtual assistant or need VA training services, REAL VA Training Center is here to support your goals.</p>
+        
+        <div class="contact-info-items">
+          <div class="contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <div class="content">
+              <h4>Phone</h4>
+              <a href="tel:+15551234567">+1 (555) 123-4567</a>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div class="content">
+              <h4>Email</h4>
+              <a href="mailto:support@realvatraining.com">support@realvatraining.com</a>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="content">
+              <h4>Address</h4>
+              <p>123 Virtual Avenue, Digital City, 12345</p>
+            </div>
+          </div>
+        </div>
+        
+        <h3 style="margin-top: 30px;">Connect With Us</h3>
+        <div class="social-links">
+          <a href="https://www.facebook.com/profile.php?id=61575781753909" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/realvatrngcntr/" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/15551234567" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
       </div>
-
-      <div class="contact-detail">
-        <i class="fas fa-phone-alt"></i>
-        <span>+1 (555) 123-4567</span>
-      </div>
-
-      <div class="contact-detail">
-        <i class="fas fa-envelope"></i>
-        <a href="mailto:support@reallms.com">support@reallms.com</a>
-      </div>
-
-      <div class="contact-detail">
-        <i class="fab fa-facebook-square"></i>
-        <a href="https://www.facebook.com/reallms" target="_blank">facebook.com/reallms</a>
+      
+      <!-- Right Container: Send Message Form -->
+      <div class="section-box">
+        <h3>Send Message</h3>
+        <form class="contact-form">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <input type="tel" placeholder="Your Phone (optional)">
+          <input type="text" placeholder="Subject">
+          <textarea rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </form>
       </div>
     </div>
+    
+
   </section>
 
   <footer>
-    <p>&copy; 2025 REAL LMS. All rights reserved.</p>
+    <p>&copy; 2025 REAL VA Training Center. All rights reserved.</p>
+    <img src="MINE.png" alt="REAL LMS Logo" style="height: 90px; width: auto;">
   </footer>
 </body>
-
 </html>
