@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>REAL LMS</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
@@ -16,37 +15,39 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(120deg, #edeaff, #e6e6ff);
-      background-size: 400% 400%;
-      animation: gradientBg 10s ease infinite;
+      background-color: #f9f8ff;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%237b2cbf' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
       color: #333;
-    }
-
-    @keyframes gradientBg {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
+      line-height: 1.6;
     }
 
     header {
-      background-color: #5a189a;
+      background: linear-gradient(135deg, #5a189a 0%, #7b2cbf 100%);
       color: white;
       padding: 60px 20px;
       text-align: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+      z-index: 1;
     }
 
     header h1 {
       font-size: 3.5rem;
       font-weight: 700;
       letter-spacing: 2px;
-      text-shadow: 2px 2px 5px #000;
+      position: relative;
+      z-index: 2;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     }
 
     nav {
@@ -56,14 +57,28 @@
       align-items: center;
       padding: 15px 30px;
       flex-wrap: wrap;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     nav .logo {
       font-size: 2rem;
       font-weight: 700;
       color: #fff;
-      text-shadow: 1px 2px 5px #000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    nav .logo:hover {
+      transform: scale(1.05);
+    }
+
+    nav .logo i {
+      color: #e0c3fc;
     }
 
     nav ul {
@@ -76,13 +91,34 @@
     nav ul li a {
       color: white;
       text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s, transform 0.3s;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    nav ul li a::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      transition: height 0.3s ease;
+      z-index: -1;
     }
 
     nav ul li a:hover {
-      color: #e0c3fc;
-      transform: scale(1.1);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    nav ul li a:hover::before {
+      height: 100%;
     }
 
     .subjects {
@@ -91,31 +127,72 @@
     }
 
     .subjects h2 {
+      text-align: center;
       font-size: 2.5rem;
       margin-bottom: 40px;
       color: #5a189a;
-      text-shadow: 1px 2px 5px #000;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .subjects h2::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(to right, #7b2cbf, #e0c3fc);
+      border-radius: 2px;
     }
 
     .video-wrapper {
       max-width: 900px;
       margin: 0 auto 40px;
       background: #fff;
-      padding: 20px;
+      padding: 25px;
       border-radius: 12px;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      position: relative;
+      overflow: hidden;
+      border-left: 6px solid #7b2cbf;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .video-wrapper::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(to right, #7b2cbf, #e0c3fc);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
+    }
+
+    .video-wrapper:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(123, 44, 191, 0.15);
+    }
+
+    .video-wrapper:hover::before {
+      transform: scaleX(1);
     }
 
     .video-wrapper iframe {
       width: 100%;
       height: 480px;
       border-radius: 10px;
+      border: none;
     }
 
     .video-wrapper p {
-      margin-top: 10px;
+      margin-top: 15px;
       color: #5a189a;
-      font-weight: bold;
+      font-weight: 500;
     }
 
     .subject-grid {
@@ -130,20 +207,47 @@
       background-color: white;
       border-radius: 12px;
       padding: 25px;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+      border-left: 6px solid #7b2cbf;
+    }
+
+    .subject::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(to right, #7b2cbf, #e0c3fc);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
     }
 
     .subject:hover {
       transform: translateY(-8px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 25px rgba(123, 44, 191, 0.15);
+    }
+
+    .subject:hover::before {
+      transform: scaleX(1);
     }
 
     .subject h3 {
-      color: #7b2cbf;
-      margin-bottom: 10px;
+      color: #5a189a;
+      margin-bottom: 15px;
       font-size: 1.3rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .subject h3 i {
+      margin-right: 8px;
+      color: #7b2cbf;
     }
 
     .subject p {
@@ -160,67 +264,151 @@
     }
 
     .subject button {
-      background-color: #5a189a;
-      color: white;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 30px;
       border: none;
-      padding: 10px 18px;
-      border-radius: 5px;
-      font-size: 0.95rem;
+      background: linear-gradient(135deg, #7b2cbf 0%, #5a189a 100%);
+      color: white;
       cursor: pointer;
-      transition: background-color 0.3s, transform 0.3s;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .subject button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: all 0.6s ease;
+      z-index: -1;
     }
 
     .subject button:hover {
-      background-color: #9d4edd;
-      transform: scale(1.05);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(123, 44, 191, 0.3);
+    }
+
+    .subject button:hover::before {
+      left: 100%;
     }
 
     footer {
       text-align: center;
-      background-color: #5a189a;
+      background: linear-gradient(135deg, #5a189a 0%, #7b2cbf 100%);
       color: white;
-      padding: 20px;
+      padding: 30px 20px;
       margin-top: 40px;
-      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+      height: 150px;
     }
 
-    footer .social-icons {
-      margin: 10px 0;
+    footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+      z-index: 1;
     }
 
-    footer .social-icons a {
-      margin: 0 10px;
+    footer p {
+      position: relative;
+      z-index: 2;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background-color: #7b2cbf;
       color: white;
-      font-size: 1.5rem;
-      transition: color 0.3s, transform 0.3s;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      font-size: 1.2rem;
     }
 
-    footer .social-icons a:hover {
-      color: #e0c3fc;
-      transform: scale(1.2);
+    .social-links a:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(123, 44, 191, 0.3);
+      background-color: #5a189a;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      nav ul {
+        justify-content: center;
+      }
+      
+      header h1 {
+        font-size: 2.5rem;
+      }
+      
+      .video-wrapper iframe {
+        height: 350px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .subject {
+        padding: 15px;
+      }
+
+      .video-wrapper {
+        padding: 15px;
+      }
+
+      .video-wrapper iframe {
+        height: 250px;
+      }
     }
   </style>
 </head>
 
 <body>
   <header>
-    <h1><i class="fas fa-graduation-cap"></i> REAL</h1>
-  </header>
+    <h1><i class="fas fa-house"></i> HOME</h1>  </header>
 
   <nav>
-    <div class="logo"><i class="fas fa-book-reader"></i> REAL</div>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="signin-landing.html"><i class="fas fa-sign-in-alt"></i> Sign In</a></li>
+        <div class="logo">
+        <img src="image.png" alt="REAL LMS Logo" style="height: 120px; width: auto;">
+      </div>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+      <li><a href="signin.html"><i class="fas fa-user"></i> SIGN IN</a></li>
+
     </ul>
   </nav>
 
   <section class="subjects">
-
     <div class="video-wrapper">
-      <iframe width="100%" height="480" src="https://youtu.be/IMrRZBejMV4?si=j_jWcUcSHXu8mJ0F" title="REAL VA Intro Video" frameborder="0"
+      <iframe src="https://www.youtube.com/embed/IMrRZBejMV4" title="REAL VA Intro Video" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       <p>Welcome to REAL LMS - Watch this intro video to get started!</p>
     </div>
@@ -256,12 +444,8 @@
 
   <footer>
     <p>&copy; 2025 REAL LMS. All rights reserved.</p>
-    <div class="social-icons">
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
+ 
+    <img src="MINE.png" alt="REAL LMS Logo" style="height: 90px; width: auto;">
   </footer>
 
   <script>
