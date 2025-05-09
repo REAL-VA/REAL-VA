@@ -75,6 +75,22 @@
       background-color: #7b2cbf;
     }
 
+    .back-button {
+      margin-top: 20px;
+      padding: 12px;
+      background-color: #ccc;
+      color: black;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .back-button:hover {
+      background-color: #999;
+    }
+
     .background-icon {
       position: absolute;
       font-size: 300px;
@@ -98,7 +114,14 @@
     <p>We are almost there! If you want to get notified when the website goes live, subscribe to our mailing list.</p>
     <input type="email" placeholder="Enter your email" required />
     <button>Notify Me</button>
+    <button class="back-button" onclick="goBack()">Back to Home</button>
   </div>
+
+  <script>
+    function goBack() {
+      window.location.href = "index.html"; // Update this if your home page has a different filename
+    }
+  </script>
 </body>
 
 </html>
