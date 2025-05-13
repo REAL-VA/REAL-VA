@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - EduPortal</title>
+    <style>
+       /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0ff;
+    color: #5a0f91;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    background-color: #5a0f91;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Courses Section */
+.courses {
+    padding: 50px 20px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.courses h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #5a0f91;
+}
+
+.course-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.course-card {
+    background-color: white;
+    border: 2px solid #5a0f91;
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.course-card:hover {
+    background-color: #f9f9f9;
+    transform: scale(1.05);
+}
+
+.course-card h3 {
+    color: #5a0f91;
+}
+
+.course-card p {
+    font-size: 14px;
+}
+
+/* Footer */
+footer {
+    background-color: #5a0f91;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto;
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">COMPUTER STUDIES UNIVERSITY</div>
+        <nav>
+            <ul>
+                <li><a href="profile.html"><i class="fas fa-home icon"></i>Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="courses">
+    <h2>Explore Courses</h2>
+    <div class="course-grid">
+        <div class="course-card" onclick="redirectToCourse('computer-science')">
+            <h3>General Virtual Assistant Training</h3>
+            <p>Covers the basics of working as a VA, including communication, time management, task handling, and client relations.</p>
+        </div>
+        <div class="course-card" onclick="redirectToCourse('information-technology')">
+            <h3> Social Media Management</h3>
+            <p>Teaches how to manage business pages on platforms like Facebook, Instagram, and LinkedIn, including content planning and scheduling.</p>
+        </div>
+        <div class="course-card" onclick="redirectToCourse('computer-engineering')">
+            <h3>Email and Calendar Management</h3>
+            <p>Focuses on organizing emails, responding professionally, setting appointments, and managing calendars for busy clients.</p>
+        </div>
+        <div class="course-card" onclick="redirectToCourse('data-science')">
+            <h3>Basic Graphic Design (e.g., Canva)</h3>
+            <p>Introduces tools like Canva to create simple marketing materials, social media graphics, and presentations.</p>
+        </div>
+        <div class="course-card" onclick="redirectToCourse('analytics')">
+            <h3>Data Entry and Microsoft Office / Google Workspace</h3>
+            <p>Covers skills in Excel, Word, Google Docs, and Sheets for organizing, editing, and presenting data.</p>
+        </div>
+    </div>
+</section>
+
+
+
+    <footer>
+        <p>&copy; 2025 EduPortal. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function redirectToCourse(courseName) {
+            window.location.href = "course-details.html?course=" + courseName;
+        }
+    </script>
+
+</body>
+</html>
