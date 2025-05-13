@@ -7,6 +7,7 @@
   <title>REAL LMS - Login</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     * {
       box-sizing: border-box;
@@ -16,43 +17,48 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #edeaff, #e6e6ff);
-      color: #333;
+      background: linear-gradient(-45deg, #edeaff, #e6e6ff, #f3e8ff, #dcd0ff);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      animation: fadeInBody 1s ease-in;
+      min-height: 100vh;
+      color: #333;
     }
 
-    @keyframes fadeInBody {
-      from {
-        opacity: 0;
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
       }
-      to {
-        opacity: 1;
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
       }
     }
 
     .login-container {
       background: white;
       padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
       max-width: 400px;
-      width: 100%;
+      width: 90%;
       text-align: center;
-      animation: slideUp 1s ease-out;
+      animation: zoomSlideIn 1s ease forwards;
+      opacity: 0;
     }
 
-    @keyframes slideUp {
-      from {
-        transform: translateY(50px);
+    @keyframes zoomSlideIn {
+      0% {
+        transform: scale(0.8) translateY(50px);
         opacity: 0;
       }
-      to {
-        transform: translateY(0);
+      100% {
+        transform: scale(1) translateY(0);
         opacity: 1;
       }
     }
@@ -60,37 +66,94 @@
     .login-container h2 {
       color: #5a189a;
       margin-bottom: 30px;
+      font-size: 1.5rem;
+      animation: glow 2s infinite alternate;
     }
 
-    .login-container input,
-    .login-container select,
-    .login-container button {
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #7b2cbf;
+      }
+      to {
+        text-shadow: 0 0 15px #9d4edd;
+      }
+    }
+
+    form select,
+    form input,
+    form button {
       width: 100%;
       padding: 12px;
-      margin: 10px 0;
-      border-radius: 6px;
-      border: 1px solid #ccc;
+      margin: 12px 0;
+      border-radius: 8px;
       font-size: 1rem;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
     }
 
-    .login-container button {
+    form select:nth-child(1) {
+      animation-delay: 0.4s;
+    }
+
+    form input:nth-child(2) {
+      animation-delay: 0.6s;
+    }
+
+    form input:nth-child(3) {
+      animation-delay: 0.8s;
+    }
+
+    form button {
       background-color: #5a189a;
       color: white;
       font-weight: bold;
-      cursor: pointer;
       border: none;
-      transition: transform 0.2s ease;
+      cursor: pointer;
+      animation-delay: 1s;
     }
 
-    .login-container button:hover {
+    form button:hover {
       background-color: #7b2cbf;
       transform: scale(1.05);
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .error-message {
       color: red;
       font-size: 0.9rem;
       margin-top: 10px;
+      display: none;
+    }
+
+    .error-message.show {
+      display: block;
+      animation: shake 0.4s ease;
+    }
+
+    @keyframes shake {
+      0% {
+        transform: translateX(0);
+      }
+      25% {
+        transform: translateX(-5px);
+      }
+      50% {
+        transform: translateX(5px);
+      }
+      75% {
+        transform: translateX(-5px);
+      }
+      100% {
+        transform: translateX(0);
+      }
     }
 
     .link-container {
@@ -114,14 +177,14 @@
       background-color: #ccc;
       color: black;
       padding: 12px;
-      margin-top: 20px;
-      border-radius: 6px;
+      margin-top: 25px;
+      border-radius: 8px;
       font-size: 1rem;
       cursor: pointer;
       width: 100%;
       border: none;
       text-align: center;
-      transition: transform 0.2s ease;
+      transition: transform 0.3s ease;
     }
 
     .back-button:hover {
@@ -161,10 +224,11 @@
       event.preventDefault();
 
       const userType = document.getElementById('userType').value;
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
       const errorMessage = document.getElementById('error-message');
 
+      errorMessage.classList.remove('show');
       errorMessage.textContent = '';
 
       const adminUsername = 'ADMIN1';
@@ -173,20 +237,28 @@
       const studentUsername = 'STUDENT1';
       const studentPassword = 'STUDENT1';
 
+      let valid = false;
+
       if (userType === 'admin') {
         if (username === adminUsername && password === adminPassword) {
           window.location.href = 'admin-dashboard.html';
+          valid = true;
         } else {
           errorMessage.textContent = 'Invalid admin credentials';
         }
       } else if (userType === 'student') {
         if (username === studentUsername && password === studentPassword) {
           window.location.href = 'student-landing.html';
+          valid = true;
         } else {
           errorMessage.textContent = 'Invalid student credentials';
         }
       } else {
         errorMessage.textContent = 'Please select a role';
+      }
+
+      if (!valid) {
+        errorMessage.classList.add('show');
       }
     }
 
