@@ -1,272 +1,529 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <link rel="icon" type="image/png" href="Screenshot 2025-05-13 102633.png">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>REAL LMS - Login</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - LMS</title>
+</head>
+<style>
+  /* General Page Styling */
+  body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(-45deg, #edeaff, #e6e6ff, #f3e8ff, #dcd0ff);
-      background-size: 400% 400%;
-      animation: gradientShift 15s ease infinite;
+      background-color: #f9f8ff; /* Light purple background */
+      background-image: 
+          linear-gradient(to bottom right, #f3e8ff, #f9f8ff), 
+          url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%237b2cbf' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: auto, auto;
+      background-position: center;
       display: flex;
       flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+  }
+
+  /* Main Content Area */
+  .main-content {
+      flex: 1;
+      display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      color: #333;
-    }
+      padding: 20px;
+  }
 
-    @keyframes gradientShift {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    .login-container {
+  /* Centered Login Box */
+  .container {
       background: white;
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-      max-width: 400px;
-      width: 90%;
+      width: 350px;
+      padding: 30px;
+      border-radius: 12px;
+      border-left: 6px solid #7b2cbf;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
       text-align: center;
-      animation: zoomSlideIn 1s ease forwards;
-      opacity: 0;
-    }
+      position: relative;
+      overflow: hidden;
+  }
 
-    @keyframes zoomSlideIn {
-      0% {
-        transform: scale(0.8) translateY(50px);
-        opacity: 0;
-      }
-      100% {
-        transform: scale(1) translateY(0);
-        opacity: 1;
-      }
-    }
+  .container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(to right, #7b2cbf, #e0c3fc);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
+  }
 
-    .login-container h2 {
-      color: #5a189a;
-      margin-bottom: 30px;
-      font-size: 1.5rem;
-      animation: glow 2s infinite alternate;
-    }
+  .container:hover::before {
+      transform: scaleX(1);
+  }
 
-    @keyframes glow {
-      from {
-        text-shadow: 0 0 5px #7b2cbf;
-      }
-      to {
-        text-shadow: 0 0 15px #9d4edd;
-      }
-    }
+  /* Page Heading */
+  h1 {
+      color: #5a189a; /* Dark purple heading */
+      font-size: 24px;
+      margin-bottom: 20px;
+  }
 
-    form select,
-    form input,
-    form button {
+  /* Input Fields */
+  input {
       width: 100%;
       padding: 12px;
-      margin: 12px 0;
-      border-radius: 8px;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.6s ease forwards;
-    }
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #e0c3fc;
+      font-size: 14px;
+      box-sizing: border-box;
+      background-color: #f9f8ff; /* Light purple inputs */
+      color: #333;
+  }
 
-    form select:nth-child(1) {
-      animation-delay: 0.4s;
-    }
+  input::placeholder {
+      color: #7b2cbf;
+      opacity: 0.7;
+  }
 
-    form input:nth-child(2) {
-      animation-delay: 0.6s;
-    }
+  /* Checkbox & Label Styling */
+  .checkbox-container {
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      font-size: 14px;
+      margin: 10px 0;
+      color: #333;
+  }
 
-    form input:nth-child(3) {
-      animation-delay: 0.8s;
-    }
+  .checkbox-container input {
+      width: auto;
+      margin-right: 5px;
+      background-color: #f9f8ff;
+  }
 
-    form button {
-      background-color: #5a189a;
+  /* Login Button */
+  button {
+      width: 100%;
+      background: linear-gradient(135deg, #7b2cbf 0%, #5a189a 100%);
       color: white;
-      font-weight: bold;
       border: none;
+      padding: 12px;
+      border-radius: 30px;
       cursor: pointer;
-      animation-delay: 1s;
-    }
-
-    form button:hover {
-      background-color: #7b2cbf;
-      transform: scale(1.05);
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .error-message {
-      color: red;
-      font-size: 0.9rem;
+      font-size: 16px;
+      font-weight: bold;
       margin-top: 10px;
-      display: none;
-    }
+      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+  }
 
-    .error-message.show {
-      display: block;
-      animation: shake 0.4s ease;
-    }
+  button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: all 0.6s ease;
+      z-index: -1;
+  }
 
-    @keyframes shake {
-      0% {
-        transform: translateX(0);
-      }
-      25% {
-        transform: translateX(-5px);
-      }
-      50% {
-        transform: translateX(5px);
-      }
-      75% {
-        transform: translateX(-5px);
-      }
-      100% {
-        transform: translateX(0);
-      }
-    }
+  button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(123, 44, 191, 0.3);
+  }
 
-    .link-container {
-      margin-top: 20px;
-      font-size: 0.9rem;
-    }
+  button:hover::before {
+      left: 100%;
+  }
 
-    .link-container a {
-      color: #5a189a;
+  /* Register Link */
+  .register-link {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #333;
+  }
+
+  .register-link a, .forgot-password {
+      color: #7b2cbf; /* Purple link */
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s ease;
-    }
+  }
 
-    .link-container a:hover {
-      color: #7b2cbf;
+  .register-link a:hover, .forgot-password:hover {
       text-decoration: underline;
-    }
-
-    .back-button {
-      background-color: #ccc;
-      color: black;
-      padding: 12px;
-      margin-top: 25px;
-      border-radius: 8px;
-      font-size: 1rem;
       cursor: pointer;
+  }
+
+  #login-message {
+      color: #5a189a;
+      font-weight: bold;
+      margin-top: 10px;
+  }
+  
+  /* Home Button Styling */
+  .home-button {
+      background: linear-gradient(135deg, #9d4edd 0%, #7b2cbf 100%); /* Lighter purple for the home button */
+      margin-top: 15px;
+  }
+  
+  .home-button:hover {
+      background: linear-gradient(135deg, #7b2cbf 0%, #5a189a 100%); /* Darker purple on hover */
+  }
+  
+  /* Button container for spacing */
+  .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+  }
+  
+  /* Password Recovery Modal */
+  .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
       width: 100%;
-      border: none;
+      height: 100%;
+      background-color: rgba(0,0,0,0.7);
+  }
+  
+  .modal-content {
+      background: white;
+      margin: 15% auto;
+      padding: 20px;
+      border-left: 6px solid #7b2cbf;
+      border-radius: 12px;
+      width: 350px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      position: relative;
+      overflow: hidden;
+  }
+  
+  .modal-content::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(to right, #7b2cbf, #e0c3fc);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
+  }
+  
+  .modal-content:hover::before {
+      transform: scaleX(1);
+  }
+  
+  .close {
+      color: #7b2cbf;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+      color: #5a189a;
+      text-decoration: none;
+      cursor: pointer;
+  }
+  
+  .modal h2 {
+      color: #5a189a;
+      margin-top: 0;
+  }
+  
+  .modal p {
+      color: #333;
+      margin-bottom: 15px;
+  }
+  
+  /* Password reset steps */
+  .reset-step {
+      display: none;
+  }
+  
+  .reset-step.active {
+      display: block;
+  }
+  
+  /* Password rules info */
+  .password-rules {
+      color: #7b2cbf;
+      font-size: 12px;
+      text-align: left;
+      margin: 5px 0 15px 0;
+  }
+
+  /* Footer */
+  .footer {
       text-align: center;
-      transition: transform 0.3s ease;
-    }
-
-    .back-button:hover {
-      background-color: #999;
-      transform: scale(1.03);
-    }
-  </style>
-</head>
-
+      padding: 15px;
+      font-size: 12px;
+      color: #7b2cbf;
+      background-color: #f3e8ff;
+  }
+</style>
 <body>
-  <div class="login-container">
-    <h2><i class="fas fa-sign-in-alt"></i> Login to REAL LMS</h2>
-    <form onsubmit="return validateLogin(event)">
-      <select name="userType" id="userType" required>
-        <option value="" disabled selected>Select Role</option>
-        <option value="admin">Admin</option>
-        <option value="student">Student</option>
-      </select>
-      <input type="text" id="username" placeholder="Username" required />
-      <input type="password" id="password" placeholder="Password" required />
-      <button type="submit">Login</button>
-    </form>
-    <p class="error-message" id="error-message"></p>
+<!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <h1>Welcome to LMS</h1>
+            
+            <input type="email" id="login-email" placeholder="Enter Email">
+            <input type="password" id="login-password" placeholder="Enter Password">
+            
+            <div class="checkbox-container">
+                <input type="checkbox" id="show-password" onclick="togglePassword()">
+                <label for="show-password">Show Password</label>
+            </div>
+            
+            <div class="button-container">
+                <button onclick="loginUser()">Log In</button>
+                <button class="home-button" onclick="goHome()">Back to Home</button>
+            </div>
+            
+            <p id="login-message"></p>
 
-    <div class="link-container">
-      <p>
-        <a href="create-account.html">Create Account</a> | 
-        <a href="forgot-password.html">Forgot Password?</a>
-      </p>
+            <p class="register-link">Don't have an account? <a href="REGISTER.html">Create an account</a></p>
+            <p class="register-link"><span class="forgot-password" onclick="openForgotPasswordModal()">Forgot Password?</span></p>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+        <p>Learning Management System &copy; 2025</p>
+    </div>
+    
+    <!-- Forgot Password Modal -->
+    <div id="forgotPasswordModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeForgotPasswordModal()">&times;</span>
+            <h2>Password Recovery</h2>
+            
+            <!-- Step 1: Email Verification -->
+            <div id="step1" class="reset-step active">
+                <p>Enter your email address to reset your password:</p>
+                <input type="email" id="recovery-email" placeholder="Enter your email">
+                <button onclick="verifyEmail()">Continue</button>
+                <p id="email-message"></p>
+            </div>
+            
+            <!-- Step 2: Create New Password -->
+            <div id="step2" class="reset-step">
+                <p>Create a new password:</p>
+                <input type="password" id="new-password" placeholder="Enter new password">
+                <input type="password" id="confirm-password" placeholder="Confirm new password">
+                <p class="password-rules">Password should be at least 6 characters</p>
+                <button onclick="resetPassword()">Reset Password</button>
+                <p id="reset-message"></p>
+            </div>
+            
+            <!-- Step 3: Success -->
+            <div id="step3" class="reset-step">
+                <p>Your password has been successfully reset!</p>
+                <p>You can now log in with your new password.</p>
+                <button onclick="closeAndRedirect()">Back to Login</button>
+            </div>
+        </div>
     </div>
 
-    <button class="back-button" onclick="goBack()">Back to Home</button>
-  </div>
-
-  <script>
-    function validateLogin(event) {
-      event.preventDefault();
-
-      const userType = document.getElementById('userType').value;
-      const username = document.getElementById('username').value.trim();
-      const password = document.getElementById('password').value.trim();
-      const errorMessage = document.getElementById('error-message');
-
-      errorMessage.classList.remove('show');
-      errorMessage.textContent = '';
-
-      const adminUsername = 'ADMIN1';
-      const adminPassword = 'ANAKNIJUNKO';
-
-      const studentUsername = 'STUDENT1';
-      const studentPassword = 'STUDENT1';
-
-      let valid = false;
-
-      if (userType === 'admin') {
-        if (username === adminUsername && password === adminPassword) {
-          window.location.href = 'admin-dashboard.html';
-          valid = true;
-        } else {
-          errorMessage.textContent = 'Invalid admin credentials';
+    <script>
+        // Check if user is logged in when the page loads
+        window.onload = function() {
+            checkAccessRestrictions();
+        };
+        
+        // Function to check access restrictions
+        function checkAccessRestrictions() {
+            let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+            
+            // If user is logged in and is a student, disable admin links
+            if (loggedInUser && loggedInUser.role === "student") {
+                // Add visual indication that these links are disabled
+                document.querySelectorAll('.navbar-links a').forEach(link => {
+                    if (link.href.includes('admin-dashboard.html')) {
+                        link.style.opacity = "0.5";
+                        link.style.pointerEvents = "none";
+                        link.title = "Access restricted to administrators only";
+                    }
+                });
+            }
         }
-      } else if (userType === 'student') {
-        if (username === studentUsername && password === studentPassword) {
-          window.location.href = 'student-landing.html';
-          valid = true;
-        } else {
-          errorMessage.textContent = 'Invalid student credentials';
+        
+        function loginUser() {
+            let email = document.getElementById("login-email").value;
+            let password = document.getElementById("login-password").value;
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+            let user = users.find(user => user.email === email && user.password === password);
+
+            if (user) {
+                // Set role if not already set (for backward compatibility)
+                if (!user.role) {
+                    user.role = "student"; // Default role is student
+                }
+
+                user.isLoggedIn = true;
+                localStorage.setItem("users", JSON.stringify(users));
+                localStorage.setItem("loggedInUser", JSON.stringify(user));
+
+                // Add user to accounts library if not already present
+                let accountsLibrary = JSON.parse(localStorage.getItem("accountsLibrary")) || [];
+                if (!accountsLibrary.find(account => account.email === user.email)) {
+                    accountsLibrary.push({
+                        name: user.name || "Unknown", // Assuming user object has a name property
+                        email: user.email,
+                        password: user.password,
+                        role: user.role,
+                        registeredAt: new Date().toLocaleString()
+                    });
+                    localStorage.setItem("accountsLibrary", JSON.stringify(accountsLibrary));
+                }
+
+                document.getElementById("login-message").innerText = "Login successful! Redirecting...";
+                
+                // Redirect based on role
+                if (user.role === "admin") {
+                    setTimeout(() => { window.location.href = "admin-dashboard.html"; }, 2000);
+                } else {
+                    setTimeout(() => { window.location.href = "profile.html"; }, 2000);
+                }
+            } else {
+                document.getElementById("login-message").innerText = "Invalid email or password!";
+            }
         }
-      } else {
-        errorMessage.textContent = 'Please select a role';
-      }
 
-      if (!valid) {
-        errorMessage.classList.add('show');
-      }
-    }
-
-    function goBack() {
-      window.location.href = 'index.html';
-    }
-  </script>
+        function togglePassword() {
+            let passwordField = document.getElementById("login-password");
+            passwordField.type = passwordField.type === "password" ? "text" : "password";
+        }
+        
+        function goHome() {
+            window.location.href = "index.html";
+        }
+        
+        // Forgot Password Functions
+        let resetEmail = ""; // Store the email for password reset
+        
+        function openForgotPasswordModal() {
+            // Reset the modal to step 1
+            document.querySelectorAll('.reset-step').forEach(step => {
+                step.classList.remove('active');
+            });
+            document.getElementById('step1').classList.add('active');
+            
+            // Clear any previous messages
+            document.getElementById("email-message").innerText = "";
+            document.getElementById("reset-message").innerText = "";
+            
+            // Pre-fill with login email if available
+            document.getElementById("recovery-email").value = document.getElementById("login-email").value;
+            
+            // Show the modal
+            document.getElementById("forgotPasswordModal").style.display = "block";
+        }
+        
+        function closeForgotPasswordModal() {
+            document.getElementById("forgotPasswordModal").style.display = "none";
+        }
+        
+        function verifyEmail() {
+            const email = document.getElementById("recovery-email").value.trim();
+            
+            if (!email) {
+                document.getElementById("email-message").innerText = "Please enter your email address.";
+                return;
+            }
+            
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+            const user = users.find(user => user.email === email);
+            
+            if (user) {
+                // Email exists, proceed to step 2
+                resetEmail = email; // Store the email for the reset
+                
+                // Show step 2
+                document.getElementById('step1').classList.remove('active');
+                document.getElementById('step2').classList.add('active');
+                
+                // Clear any previous messages
+                document.getElementById("reset-message").innerText = "";
+                
+                // Clear input fields
+                document.getElementById("new-password").value = "";
+                document.getElementById("confirm-password").value = "";
+            } else {
+                document.getElementById("email-message").innerText = 
+                    "Email not found. Please check your email or register.";
+            }
+        }
+        
+        function resetPassword() {
+            const newPassword = document.getElementById("new-password").value;
+            const confirmPassword = document.getElementById("confirm-password").value;
+            
+            // Validate password
+            if (newPassword.length < 6) {
+                document.getElementById("reset-message").innerText = "Password must be at least 6 characters long.";
+                return;
+            }
+            
+            // Confirm passwords match
+            if (newPassword !== confirmPassword) {
+                document.getElementById("reset-message").innerText = "Passwords do not match.";
+                return;
+            }
+            
+            // Update the password
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+            const userIndex = users.findIndex(user => user.email === resetEmail);
+            
+            if (userIndex !== -1) {
+                // Update password
+                users[userIndex].password = newPassword;
+                localStorage.setItem("users", JSON.stringify(users));
+                
+                // Update accounts library if it exists
+                let accountsLibrary = JSON.parse(localStorage.getItem("accountsLibrary")) || [];
+                const accIndex = accountsLibrary.findIndex(acc => acc.email === resetEmail);
+                if (accIndex !== -1) {
+                    accountsLibrary[accIndex].password = newPassword;
+                    localStorage.setItem("accountsLibrary", JSON.stringify(accountsLibrary));
+                }
+                
+                // Show success message (step 3)
+                document.getElementById('step2').classList.remove('active');
+                document.getElementById('step3').classList.add('active');
+            } else {
+                document.getElementById("reset-message").innerText = "An error occurred. Please try again.";
+            }
+        }
+        
+        function closeAndRedirect() {
+            closeForgotPasswordModal();
+            // Pre-fill the login form with the email
+            document.getElementById("login-email").value = resetEmail;
+            document.getElementById("login-password").value = "";
+            document.getElementById("login-message").innerText = "Password reset successful. Please log in with your new password.";
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById("forgotPasswordModal");
+            if (event.target === modal) {
+                closeForgotPasswordModal();
+            }
+        }
+    </script>
 </body>
-
 </html>
