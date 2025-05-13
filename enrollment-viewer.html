@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Assistant Training Center - Computer Studies University</title>
+    <style>
+        /* Base styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0ff;
+            color: #5a0f91;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: #5a0f91;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Enrollments container */
+        .enrollments-container {
+            width: 95%;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        h2 {
+            color: #5a0f91;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+
+        /* Table styles with responsive approach */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            min-width: 500px; /* Ensures table doesn't get too narrow */
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #5a0f91;
+            color: white;
+            white-space: nowrap;
+        }
+
+        tr {
+            background-color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Button styles */
+        .action-btn, .back-btn {
+            display: inline-block;
+            background-color: #5a0f91;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            margin: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .action-btn:hover, .back-btn:hover {
+            background-color: #4a0a81;
+        }
+
+        .back-btn {
+            background-color: #666;
+            margin-top: 20px;
+        }
+
+        .back-btn:hover {
+            background-color: #444;
+        }
+
+        /* Status indicators */
+        .status-active {
+            background-color: #dff0d8;
+            color: #3c763d;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .status-pending {
+            background-color: #fcf8e3;
+            color: #8a6d3b;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .message {
+            color: #5a0f91;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .auth-warning {
+            background-color: #f2dede;
+            color: #a94442;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #5a0f91;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            width: 100%;
+        }
+
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            .enrollments-container {
+                width: 98%;
+                padding: 10px;
+            }
+
+            table {
+                min-width: 300px;
+            }
+
+            th, td {
+                padding: 8px;
+                font-size: 0.9rem;
+            }
+
+            .action-btn, .back-btn {
+                padding: 6px 10px;
+                font-size: 0.8rem;
+                margin: 3px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            /* Extreme mobile optimization */
+            table {
+                font-size: 0.8rem;
+            }
+
+            th, td {
+                padding: 6px;
+            }
+
+            .action-btn {
+                display: block;
+                width: 100%;
+                margin: 5px 0;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">COMPUTER STUDIES UNIVERSITY</div>
+    </header>
+
+    <div class="enrollments-container" id="enrollmentsContainer">
+        <h2>Virtual Assistant Training Center Enrollments</h2>
+        
+        <div id="authCheck">
+            <!-- Auth check will be handled by JavaScript -->
+        </div>
+        
+        <div id="enrollmentContent" style="display:none;">
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student Name</th>
+                            <th>Email</th>
+                            <th>Enrollment Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="enrollmentsTableBody"></tbody>
+                </table>
+            </div>
+
+            <div class="message" id="message"></div>
+
+            <button class="back-btn" onclick="window.location.href='admin-dashboard.html'">Back to Home</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Computer Studies University. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is admin
+            const isAdmin = localStorage.getItem('isAdmin') === 'true';
+            const authCheck = document.getElementById('authCheck');
+            const enrollmentContent = document.getElementById('enrollmentContent');
+            
+            if (isAdmin) {
+                // Show enrollment content
+                enrollmentContent.style.display = 'block';
+                loadVirtualAssistantEnrollments();
+            } else {
+                // Show authentication warning
+                authCheck.innerHTML = `
+                    <div class="auth-warning">
+                        <h3>Administrator Access Required</h3>
+                        <p>You need administrator privileges to view this page.</p>
+                        <button class="action-btn" onclick="window.location.href='enrollment-form.html'">
+                            Return to Enrollment Form
+                        </button>
+                    </div>
+                `;
+            }
+        });
+
+        function loadVirtualAssistantEnrollments() {
+            const courseName = "Virtual Assistant Training Center";
+            const enrollments = getEnrollmentsForCourse(courseName);
+            const tableBody = document.getElementById("enrollmentsTableBody");
+            const message = document.getElementById("message");
+            
+            tableBody.innerHTML = "";
+            message.innerHTML = "";
+
+            if (enrollments.length === 0) {
+                message.innerHTML = `No students enrolled in ${courseName}.`;
+            } else {
+                enrollments.forEach((enrollment) => {
+                    const statusClass = enrollment.status.toLowerCase() === 'active' ? 
+                                        'status-active' : 'status-pending';
+                    
+                    const row = `<tr>
+                        <td>${enrollment.studentName}</td>
+                        <td>${enrollment.email}</td>
+                        <td>${enrollment.enrollmentDate}</td>
+                        <td><span class="${statusClass}">${enrollment.status}</span></td>
+                        <td>
+                            <button class="action-btn" onclick="viewStudentDetails('${enrollment.email}')">View Details</button>
+                            <button class="action-btn" onclick="updateStatus('${enrollment.email}', '${courseName}')">
+                                ${enrollment.status === 'Active' ? 'Mark Pending' : 'Approve'}
+                            </button>
+                            <button class="action-btn" onclick="removeEnrollment('${enrollment.email}', '${courseName}')">Unenroll</button>
+                        </td>
+                    </tr>`;
+                    tableBody.innerHTML += row;
+                });
+            }
+        }
+
+        function getEnrollmentsForCourse(courseName) {
+            // Get enrollments from localStorage
+            const enrollments = JSON.parse(localStorage.getItem("courseEnrollments")) || {};
+            
+            // Return enrollments for the selected course or an empty array if none
+            return enrollments[courseName] || [];
+        }
+
+        function viewStudentDetails(email) {
+            // Get users from localStorage
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+            const student = users.find(user => user.email === email);
+            
+            if (student) {
+                alert(`Student Details:\nName: ${student.name}\nEmail: ${student.email}\nRegistered: ${student.registeredAt || 'N/A'}`);
+            } else {
+                alert("Student details not found.");
+            }
+        }
+
+        function updateStatus(email, courseName) {
+            // Get current enrollments
+            const enrollments = JSON.parse(localStorage.getItem("courseEnrollments")) || {};
+            
+            if (enrollments[courseName]) {
+                // Find the enrollment to update
+                const enrollmentIndex = enrollments[courseName].findIndex(e => e.email === email);
+                
+                if (enrollmentIndex !== -1) {
+                    // Toggle status
+                    const currentStatus = enrollments[courseName][enrollmentIndex].status;
+                    enrollments[courseName][enrollmentIndex].status = 
+                        currentStatus === 'Active' ? 'Pending' : 'Active';
+                    
+                    // Update localStorage
+                    localStorage.setItem("courseEnrollments", JSON.stringify(enrollments));
+                    
+                    // Refresh the table
+                    loadVirtualAssistantEnrollments();
+                }
+            }
+        }
+
+        function removeEnrollment(email, courseName) {
+            if (confirm(`Are you sure you want to unenroll this student from ${courseName}?`)) {
+                // Get current enrollments
+                const enrollments = JSON.parse(localStorage.getItem("courseEnrollments")) || {};
+                
+                if (enrollments[courseName]) {
+                    // Filter out the enrollment to remove
+                    enrollments[courseName] = enrollments[courseName].filter(e => e.email !== email);
+                    
+                    // Update localStorage
+                    localStorage.setItem("courseEnrollments", JSON.stringify(enrollments));
+                    
+                    alert("Student unenrolled successfully.");
+                    // Refresh the table
+                    loadVirtualAssistantEnrollments();
+                }
+            }
+        }
+
+        // Populate with mock data for demonstration purposes
+        function populateMockData() {
+            // Get existing data or create new object
+            const existingEnrollments = JSON.parse(localStorage.getItem("courseEnrollments")) || {};
+            
+            // Add Virtual Assistant Training Center enrollments if they don't exist
+            if (!existingEnrollments["Virtual Assistant Training Center"]) {
+                existingEnrollments["Virtual Assistant Training Center"] = [
+                    {
+                        studentName: "Alex Rivera",
+                        email: "alex@example.com",
+                        enrollmentDate: "2025-03-15",
+                        status: "Active"
+                    },
+                    {
+                        studentName: "Jordan Kim",
+                        email: "jordan@example.com",
+                        enrollmentDate: "2025-03-20",
+                        status: "Pending"
+                    },
+                    {
+                        studentName: "Taylor Morgan",
+                        email: "taylor@example.com",
+                        enrollmentDate: "2025-03-22",
+                        status: "Active"
+                    }
+                ];
+                
+                // Update localStorage
+                localStorage.setItem("courseEnrollments", JSON.stringify(existingEnrollments));
+            }
+            
+            // Create mock user data if none exists or update existing users
+            const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+            
+            const vaStudents = [
+                {
+                    name: "Alex Rivera",
+                    email: "alex@example.com",
+                    registeredAt: "2025-03-10"
+                },
+                {
+                    name: "Jordan Kim",
+                    email: "jordan@example.com",
+                    registeredAt: "2025-03-18"
+                },
+                {
+                    name: "Taylor Morgan",
+                    email: "taylor@example.com",
+                    registeredAt: "2025-03-19"
+                }
+            ];
+            
+            // Add VA students if they don't exist in the users array
+            vaStudents.forEach(student => {
+                if (!existingUsers.some(user => user.email === student.email)) {
+                    existingUsers.push(student);
+                }
+            });
+            
+            localStorage.setItem("users", JSON.stringify(existingUsers));
+            
+            // Set admin access for demonstration
+            localStorage.setItem("isAdmin", "true");
+        }
+
+        // Run mock data population when loading the page
+        populateMockData();
+    </script>
+</body>
+</html>
