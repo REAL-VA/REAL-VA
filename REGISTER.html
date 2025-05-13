@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - LMS</title>
+</head>
+<style>
+
+    /* General Page Styling */
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f9f8ff; /* Light purple background */
+        background-image: 
+            linear-gradient(to bottom right, #f3e8ff, #f9f8ff), 
+            url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%237b2cbf' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        background-repeat: repeat;
+        background-size: auto, auto;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    /* Centered Login Box */
+    .container {
+        background: white;
+        width: 350px;
+        padding: 30px;
+        border-radius: 12px;
+        border-left: 6px solid #7b2cbf;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(to right, #7b2cbf, #e0c3fc);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.5s ease;
+    }
+
+    .container:hover::before {
+        transform: scaleX(1);
+    }
+
+    /* Page Heading */
+    h1 {
+        color: #5a189a; /* Dark purple heading */
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    .form-container input, 
+    .form-container select {
+        width: 100%;
+        padding: 12px;
+        margin: 8px 0;
+        border: 1px solid #3a6ea5;
+        border-radius: 5px;
+        font-size: 14px;
+        text-align: left;
+        box-sizing: border-box;
+        background-color: white;
+        color: black;
+    }
+
+    .form-container input::placeholder {
+        color: black;
+        opacity: 0.7;
+    }
+
+    .form-container select {
+        color: black;
+    }
+
+    .form-container option {
+        background-color: white;
+        color: black;
+    }
+    /* Input Fields */
+    input {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border-radius: 5px;
+        border: 1px solid #e0c3fc;
+        font-size: 14px;
+        box-sizing: border-box;
+        background-color: #f9f8ff; /* Light purple inputs */
+        color: #333;
+    }
+
+    input::placeholder {
+        color: #7b2cbf;
+        opacity: 0.7;
+    }
+
+    /* Checkbox & Label Styling */
+    .checkbox-container {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        font-size: 14px;
+        margin: 10px 0;
+        color: #333;
+    }
+
+    .checkbox-container input {
+        width: auto;
+        margin-right: 5px;
+        background-color: #f9f8ff;
+    }
+
+    /* Login Button */
+    button {
+        width: 100%;
+        background: linear-gradient(135deg, #7b2cbf 0%, #5a189a 100%);
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 10px;
+        transition: 0.3s;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: all 0.6s ease;
+        z-index: -1;
+    }
+
+    button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(123, 44, 191, 0.3);
+    }
+
+    button:hover::before {
+        left: 100%;
+    }
+
+    /* Register Link */
+    .register-link {
+        margin-top: 15px;
+        font-size: 14px;
+        color: #333;
+    }
+
+    .register-link a, .forgot-password {
+        color: #7b2cbf; /* Purple link */
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .register-link a:hover, .forgot-password:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    #login-message {
+        color: #5a189a;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+    
+    /* Home Button Styling */
+    .home-button {
+        background: linear-gradient(135deg, #9d4edd 0%, #7b2cbf 100%); /* Lighter purple for the home button */
+        margin-top: 15px;
+    }
+    
+    .home-button:hover {
+        background: linear-gradient(135deg, #7b2cbf 0%, #5a189a 100%); /* Darker purple on hover */
+    }
+    
+    /* Button container for spacing */
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    /* Password Recovery Modal */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.7);
+    }
+    
+    .modal-content {
+        background: white;
+        margin: 15% auto;
+        padding: 20px;
+        border-left: 6px solid #7b2cbf;
+        border-radius: 12px;
+        width: 350px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .modal-content::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(to right, #7b2cbf, #e0c3fc);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.5s ease;
+    }
+    
+    .modal-content:hover::before {
+        transform: scaleX(1);
+    }
+    
+    .close {
+        color: #7b2cbf;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+        color: #5a189a;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .modal h2 {
+        color: #5a189a;
+        margin-top: 0;
+    }
+    
+    .modal p {
+        color: #333;
+        margin-bottom: 15px;
+    }
+    
+    /* Password reset steps */
+    .reset-step {
+        display: none;
+    }
+    
+    .reset-step.active {
+        display: block;
+    }
+    
+    /* Password rules info */
+    .password-rules {
+        color: #7b2cbf;
+        font-size: 12px;
+        text-align: left;
+        margin: 5px 0 15px 0;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>Create Account</h1>
+        <div class="form-container">
+            <input type="text" id="name" placeholder="Full Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <select id="role">
+                <option value="student">Student</option>    
+                <option value="admin">Admin</option>
+            </select>
+
+            <!-- Password Input -->
+            <div class="password-container">
+                <input type="password" id="password" placeholder="Password" required>
+                <span class="toggle-password" onclick="togglePassword()">Show</span>
+            </div>
+
+            <div class="button-group">
+                <button onclick="createUser()">Register</button>
+                <button class="home-button" onclick="goHome()">Back to Home</button>
+            </div>
+            <p id="register-message"></p>
+        </div>
+        <p>Already have an account? <a href="signin.html" class="link">Login here</a></p>
+    </div>
+
+    <script>
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+
+        function createUser() {
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let role = document.getElementById("role").value;
+
+            if (!name || !email || !password) {
+                document.getElementById("register-message").innerText = "Please fill in all fields.";
+                return;
+            }
+
+            if (users.find(user => user.email === email)) {
+                document.getElementById("register-message").innerText = "Email already exists!";
+                return;
+            }
+
+            let newUser = { id: Date.now(), name, email, password, role, isLoggedIn: false };
+            users.push(newUser);
+            localStorage.setItem("users", JSON.stringify(users));
+            document.getElementById("register-message").innerText = "Account created! Redirecting...";
+
+            setTimeout(() => { window.location.href = "signin.html"; }, 2000);
+        }
+
+        // Toggle Password Visibility
+        function togglePassword() {
+            let passwordInput = document.getElementById("password");
+            let toggleText = document.querySelector(".toggle-password");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleText.innerText = "Hide";
+            } else {
+                passwordInput.type = "password";
+                toggleText.innerText = "Show";
+            }
+        }
+        
+        // Go back to home page
+        function goHome() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

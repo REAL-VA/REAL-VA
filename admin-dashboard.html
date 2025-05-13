@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <link rel="icon" type="image/png" href="Screenshot 2025-05-13 102633.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin Dashboard - REAL LMS</title>
@@ -119,6 +118,9 @@
       <button class="action-button" onclick="manageCourses()">Manage Courses</button>
       <button class="action-button" onclick="viewReports()">View Reports</button>
       <button class="action-button" onclick="logout()">Logout</button>
+      <button class="action-button" onclick="EnrollmentViewer()">Enrollment Viewer</button>
+       <button class="action-button" onclick="AccountLibrary()">Account Library</button>
+      
     </div>
   </div>
 
@@ -140,9 +142,14 @@
     }
 
     function logout() {
-      window.location.href = 'signin-landing.html';
+      window.location.href = 'index.html';
     }
-
+    function EnrollmentViewer() {
+      window.location.href = 'enrollment-viewer.html';
+    }
+    function AccountLibrary() {
+      window.location.href = 'ACCOUNTS_LIBRARY.html';
+    }
     function goBack() {
       window.history.back();
     }
