@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>REAL LMS - Coming Soon</title>
+  <title>REAL LMS - Login</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
       box-sizing: border-box;
@@ -16,68 +17,163 @@
     body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(to right, #edeaff, #e6e6ff);
+      color: #333;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
       height: 100vh;
-      text-align: center;
-      padding: 20px;
     }
 
-    .coming-soon-container {
+    .login-container {
       background: white;
       padding: 40px;
       border-radius: 10px;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-      max-width: 500px;
+      max-width: 400px;
       width: 100%;
+      text-align: center;
     }
 
-    h1 {
+    .login-container h2 {
       color: #5a189a;
-      margin-bottom: 20px;
-    }
-
-    p {
       margin-bottom: 30px;
-      font-size: 1rem;
-      color: #444;
     }
 
-    input[type="email"] {
+    .login-container input,
+    .login-container select,
+    .login-container button {
       width: 100%;
       padding: 12px;
-      margin-bottom: 15px;
+      margin: 10px 0;
       border-radius: 6px;
       border: 1px solid #ccc;
       font-size: 1rem;
     }
 
-    button {
-      width: 100%;
-      padding: 12px;
-      border: none;
-      border-radius: 6px;
+    .login-container button {
       background-color: #5a189a;
       color: white;
       font-weight: bold;
-      font-size: 1rem;
       cursor: pointer;
+      border: none;
     }
 
-    button:hover {
+    .login-container button:hover {
       background-color: #7b2cbf;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+
+    .link-container {
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }
+
+    .link-container a {
+      color: #5a189a;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .link-container a:hover {
+      color: #7b2cbf;
+      text-decoration: underline;
+    }
+
+    .back-button {
+      background-color: #ccc;
+      color: black;
+      padding: 12px;
+      margin-top: 20px;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+      border: none;
+      text-align: center;
+    }
+
+    .back-button:hover {
+      background-color: #999;
     }
   </style>
 </head>
 
 <body>
-  <div class="coming-soon-container">
-    <h1>WE ARE COMING SOON</h1>
-    <p>We are almost there! If you want to get notified when the website goes live, subscribe to our mailing list.</p>
-    <input type="email" placeholder="Enter your email" required />
-    <button>Notify Me</button>
+  <div class="login-container">
+    <h2><i class="fas fa-sign-in-alt"></i> Login to REAL LMS</h2>
+    <form onsubmit="return validateLogin(event)">
+      <select name="userType" id="userType" required>
+        <option value="" disabled selected>Select Role</option>
+        <option value="admin">Admin</option>
+        <option value="student">Student</option>
+      </select>
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+    <p class="error-message" id="error-message"></p>
+
+    <!-- Links for Create Account and Forgot Password -->
+    <div class="link-container">
+      <p>
+        <a href="create-account.html">Create Account</a> | 
+        <a href="forgot-password.html">Forgot Password?</a>
+      </p>
+    </div>
+
+    <!-- Back Button -->
+    <button class="back-button" onclick="goBack()">Back to Home</button>
   </div>
+
+  <script>
+    function validateLogin(event) {
+      event.preventDefault();
+
+      const userType = document.getElementById('userType').value;
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const errorMessage = document.getElementById('error-message');
+
+      // Clear previous error message
+      errorMessage.textContent = '';
+
+      // Admin credentials
+      const adminUsername = 'ADMIN1';
+      const adminPassword = 'ANAKNIJUNKO';
+
+      // Student credentials
+      const studentUsername = 'STUDENT1';
+      const studentPassword = 'STUDENT1';
+
+      // Check credentials based on user type
+      if (userType === 'admin') {
+        if (username === adminUsername && password === adminPassword) {
+          window.location.href = 'admin-dashboard.html'; // Redirect to admin dashboard
+        } else {
+          errorMessage.textContent = 'Invalid admin credentials';
+        }
+      } else if (userType === 'student') {
+        if (username === studentUsername && password === studentPassword) {
+          window.location.href = 'student-landing.html'; // Redirect to student landing page
+        } else {
+          errorMessage.textContent = 'Invalid student credentials';
+        }
+      } else {
+        errorMessage.textContent = 'Please select a role';
+      }
+    }
+
+    function goBack() {
+      window.location.href = 'index.html'; // Replace 'index.html' with your home page URL
+    }
+  </script>
 </body>
 
 </html>
