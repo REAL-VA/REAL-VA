@@ -1,66 +1,862 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="Screenshot 2025-05-13 102633.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Manage Courses - REAL LMS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f3f0ff;
-      padding: 40px;
-      text-align: center;
-    }
-
-    h2 {
-      color: #5a189a;
-    }
-
-    ul {
-      list-style: none;
+    * {
+      box-sizing: border-box;
+      margin: 0;
       padding: 0;
     }
 
-    li {
-      background: white;
-      margin: 10px auto;
-      padding: 15px;
-      width: 80%;
-      max-width: 500px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f8ff;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%237b2cbf' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    a {
-      display: inline-block;
+    /* Smooth scroll behavior */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #7b2cbf;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #5a189a;
+    }
+
+    header {
+      background: linear-gradient(135deg, #5a189a 0%, #7b2cbf 100%);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+      z-index: 1;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      position: relative;
+      z-index: 2;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+      margin-bottom: 10px;
+      animation: fadeInDown 1s ease both;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .top-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .search-bar {
+      display: flex;
+      gap: 10px;
+      flex: 1;
+      max-width: 500px;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .search-bar input:focus {
+      outline: none;
+      border-color: #7b2cbf;
+      box-shadow: 0 2px 10px rgba(123, 44, 191, 0.2);
+    }
+
+    .button {
+      padding: 12px 20px;
+      background: linear-gradient(135deg, #7b2cbf 0%, #5a189a 100%);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(123, 44, 191, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(123, 44, 191, 0.3);
+    }
+
+    .button i {
+      font-size: 0.9rem;
+    }
+
+    .add-course-btn {
+      background: linear-gradient(135deg, #4CAF50 0%, #388E3C 100%);
+      box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+    }
+
+    .add-course-btn:hover {
+      box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
+    }
+
+    .courses-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
       margin-top: 20px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .courses-table th,
+    .courses-table td {
+      padding: 15px;
+      text-align: left;
+    }
+
+    .courses-table th {
+      background: linear-gradient(135deg, #5a189a 0%, #7b2cbf 100%);
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .courses-table tr:nth-child(even) {
+      background-color: #f9f8ff;
+    }
+
+    .courses-table tr {
+      transition: all 0.3s ease;
+    }
+
+    .courses-table tr:hover {
+      background-color: #f0ebff;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(123, 44, 191, 0.1);
+    }
+
+    .courses-table td {
+      border-bottom: 1px solid #f0ebff;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .edit-btn {
+      background: linear-gradient(135deg, #4CAF50 0%, #388E3C 100%);
+      color: white;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .edit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 10px rgba(76, 175, 80, 0.3);
+    }
+
+    .delete-btn {
+      background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+      color: white;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .delete-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 10px rgba(244, 67, 54, 0.3);
+    }
+
+    .back-button {
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #7b2cbf 0%, #5a189a 100%);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(123, 44, 191, 0.2);
+    }
+
+    .back-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(123, 44, 191, 0.3);
+    }
+
+    footer {
+      background: linear-gradient(135deg, #5a189a 0%, #7b2cbf 100%);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+      z-index: 1;
+    }
+
+    footer p {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 100;
+      backdrop-filter: blur(5px);
+      animation: fadeIn 0.3s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: 5% auto;
+      padding: 30px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+      transform: translateY(30px);
+      opacity: 0;
+      animation: slideUp 0.4s ease 0.1s forwards;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #f0ebff;
+    }
+
+    .modal-header h2 {
       color: #5a189a;
-      text-decoration: none;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    .close {
+      font-size: 28px;
+      color: #7b2cbf;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .close:hover {
+      color: #5a189a;
+      transform: rotate(90deg);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #5a189a;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #7b2cbf;
+      box-shadow: 0 2px 10px rgba(123, 44, 191, 0.1);
+    }
+
+    /* Status badge */
+    .status-badge {
+      display: inline-block;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .status-active {
+      background-color: rgba(76, 175, 80, 0.15);
+      color: #388E3C;
+    }
+
+    .status-inactive {
+      background-color: rgba(244, 67, 54, 0.15);
+      color: #d32f2f;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      
+      .container {
+        padding: 25px;
+      }
+
+      .top-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .search-bar {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .container {
+        padding: 20px;
+      }
+
+      .courses-table {
+        display: block;
+        overflow-x: auto;
+      }
+      
+      .courses-table th,
+      .courses-table td {
+        padding: 12px 10px;
+      }
+      
+      .action-buttons {
+        flex-direction: column;
+        gap: 8px;
+      }
+      
+      .edit-btn, .delete-btn {
+        padding: 6px 10px;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 576px) {
+      header h1 {
+        font-size: 1.5rem;
+        flex-direction: column;
+      }
+      
+      .container {
+        padding: 15px;
+        margin: 20px auto;
+      }
+      
+      .modal-content {
+        padding: 20px;
+      }
+      
+      .modal-header h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Animations */
+    .animate-pulse {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
   </style>
 </head>
+
 <body>
-  <h2>Manage Courses</h2>
-  <ul id="courseList"></ul>
-  <a href="admin-dashboard.html">← Back to Dashboard</a>
+  <header>
+    <h1 class="animate__animated animate__fadeInDown"><i class="fas fa-book"></i> Manage Courses</h1>
+  </header>
+
+  <div class="container">
+    <button class="back-button" onclick="goBack()">
+      <i class="fas fa-arrow-left"></i> Back to Dashboard
+    </button>
+
+    <div class="top-actions">
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search courses by name, instructor, or department...">
+        <button class="button" onclick="searchCourses()"><i class="fas fa-search"></i> Search</button>
+      </div>
+      <button class="button add-course-btn animate-pulse" onclick="openAddCourseModal()">
+        <i class="fas fa-plus"></i> Add New Course
+      </button>
+    </div>
+
+    <table class="courses-table">
+      <thead>
+        <tr>
+          <th>Course ID</th>
+          <th>Course Name</th>
+          <th>Instructor</th>
+          <th>Department</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="animate__animated animate__fadeIn" style="animation-delay: 0.1s;">
+          <td>CS101</td>
+          <td>Introduction to Programming</td>
+          <td>Instructor 1</td>
+          <td>Computer Science</td>
+          <td><span class="status-badge status-active">Active</span></td>
+          <td>
+            <div class="action-buttons">
+              <button class="edit-btn" onclick="editCourse('CS101')"><i class="fas fa-edit"></i> Edit</button>
+              <button class="delete-btn" onclick="deleteCourse('CS101')"><i class="fas fa-trash-alt"></i> Delete</button>
+            </div>
+          </td>
+        </tr>
+        <tr class="animate__animated animate__fadeIn" style="animation-delay: 0.2s;">
+          <td>MATH201</td>
+          <td>Advanced Calculus</td>
+          <td>Instructor 2</td>
+          <td>Mathematics</td>
+          <td><span class="status-badge status-active">Active</span></td>
+          <td>
+            <div class="action-buttons">
+              <button class="edit-btn" onclick="editCourse('MATH201')"><i class="fas fa-edit"></i> Edit</button>
+              <button class="delete-btn" onclick="deleteCourse('MATH201')"><i class="fas fa-trash-alt"></i> Delete</button>
+            </div>
+          </td>
+        </tr>
+        <tr class="animate__animated animate__fadeIn" style="animation-delay: 0.3s;">
+          <td>ENG110</td>
+          <td>Business Communication</td>
+          <td>Instructor 3</td>
+          <td>English</td>
+          <td><span class="status-badge status-active">Active</span></td>
+          <td>
+            <div class="action-buttons">
+              <button class="edit-btn" onclick="editCourse('ENG110')"><i class="fas fa-edit"></i> Edit</button>
+              <button class="delete-btn" onclick="deleteCourse('ENG110')"><i class="fas fa-trash-alt"></i> Delete</button>
+            </div>
+          </td>
+        </tr>
+        <tr class="animate__animated animate__fadeIn" style="animation-delay: 0.4s;">
+          <td>HIST302</td>
+          <td>Modern World History</td>
+          <td>Instructor 4</td>
+          <td>History</td>
+          <td><span class="status-badge status-inactive">Inactive</span></td>
+          <td>
+            <div class="action-buttons">
+              <button class="edit-btn" onclick="editCourse('HIST302')"><i class="fas fa-edit"></i> Edit</button>
+              <button class="delete-btn" onclick="deleteCourse('HIST302')"><i class="fas fa-trash-alt"></i> Delete</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Add/Edit Course Modal -->
+  <div id="courseModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitle">Add New Course</h2>
+        <span class="close" onclick="closeModal()">&times;</span>
+      </div>
+      <form id="courseForm" onsubmit="saveCourse(event)">
+        <div class="form-group">
+          <label for="courseId">Course ID:</label>
+          <input type="text" id="courseId" placeholder="Enter course ID (e.g., CS101)" required>
+        </div>
+        <div class="form-group">
+          <label for="courseName">Course Name:</label>
+          <input type="text" id="courseName" placeholder="Enter course name" required>
+        </div>
+        <div class="form-group">
+          <label for="instructor">Instructor:</label>
+          <input type="text" id="instructor" placeholder="Enter instructor name" required>
+        </div>
+        <div class="form-group">
+          <label for="department">Department:</label>
+          <input type="text" id="department" placeholder="Enter department name" required>
+        </div>
+        <div class="form-group">
+          <label for="status">Status:</label>
+          <select id="status" required>
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
+          </select>
+        </div>
+        <button type="submit" class="button">Save Course</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 REAL LMS. All rights reserved.</p>
+  </footer>
 
   <script>
-    if (!localStorage.getItem("loggedInUser")) {
-      window.location.href = "signin-landing.html";
+    function goBack() {
+      window.location.href = 'admin-dashboard.html';
     }
 
-    const courses = JSON.parse(localStorage.getItem("courses") || "[]");
-    const list = document.getElementById("courseList");
+    function searchCourses() {
+      const searchInput = document.getElementById('searchInput').value.toLowerCase();
+      const rows = document.querySelectorAll('.courses-table tbody tr');
 
-    if (courses.length === 0) {
-      list.innerHTML = "<li>No courses available.</li>";
-    } else {
-      courses.forEach(c => {
-        const li = document.createElement("li");
-        li.textContent = `${c.title} - Instructor: ${c.instructor}`;
-        list.appendChild(li);
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        if (text.includes(searchInput)) {
+          row.style.display = '';
+          row.classList.add('animate__animated', 'animate__fadeIn');
+        } else {
+          row.style.display = 'none';
+        }
       });
     }
-  </script>
+
+    function openAddCourseModal() {
+      document.getElementById('modalTitle').textContent = 'Add New Course';
+      document.getElementById('courseForm').reset();
+      document.getElementById('courseModal').style.display = 'block';
+    }
+
+    function editCourse(courseId) {
+      document.getElementById('modalTitle').textContent = 'Edit Course';
+      
+      // Simulate fetching course data from a database
+      let courseName, instructor, department, status;
+      
+      // This would normally be an API call to fetch data based on courseId
+      switch(courseId) {
+        case 'CS101':
+          courseName = 'Introduction to Programming';
+          instructor = 'Dr. John Smith';
+          department = 'Computer Science';
+          status = 'Active';
+          break;
+        case 'MATH201':
+          courseName = 'Advanced Calculus';
+          instructor = 'Dr. Sarah Johnson';
+          department = 'Mathematics';
+          status = 'Active';
+          break;
+        case 'ENG110':
+          courseName = 'Business Communication';
+          instructor = 'Prof. Michael Davis';
+          department = 'English';
+          status = 'Active';
+          break;
+        case 'HIST302':
+          courseName = 'Modern World History';
+          instructor = 'Dr. Emily Roberts';
+          department = 'History';
+          status = 'Inactive';
+          break;
+        default:
+          courseName = '';
+          instructor = '';
+          department = '';
+          status = 'Active';
+      }
+      
+      // Populate form with course data
+      document.getElementById('courseId').value = courseId;
+      document.getElementById('courseName').value = courseName;
+      document.getElementById('instructor').value = instructor;
+      document.getElementById('department').value = department;
+      document.getElementById('status').value = status;
+      
+      document.getElementById('courseModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('courseModal').style.display = 'none';
+    }
+
+    function saveCourse(event) {
+      event.preventDefault();
+      
+      // Get form values
+      const courseId = document.getElementById('courseId').value;
+      const courseName = document.getElementById('courseName').value;
+      const instructor = document.getElementById('instructor').value;
+      const department = document.getElementById('department').value;
+      const status = document.getElementById('status').value;
+      
+      // Here you would typically save the course data to a database via API
+      // For demo purposes, we'll just show an alert with the collected data
+      
+      const successMessage = `
+        Course saved successfully!
+        
+        Course ID: ${courseId}
+        Course Name: ${courseName}
+        Instructor: ${instructor}
+        Department: ${department}
+        Status: ${status}
+      `;
+      
+      alert(successMessage);
+      closeModal();
+      
+      // In a real application, you would refresh the table with updated data
+      // For demo purposes, we'll reload the page after a short delay
+      setTimeout(() => {
+        location.reload();
+      }, 500);
+    }
+
+    function deleteCourse(courseId) {
+  if (confirm(`Are you sure you want to delete the course with ID ${courseId}?`)) {
+    // Here you would typically delete the course from a database via API
+    alert(`Course ${courseId} has been deleted successfully`);
+    
+    // In a real application, you would remove the course from the table
+    // For demo purposes, we'll remove the row from the table
+    const rows = document.querySelectorAll('.courses-table tbody tr');
+    rows.forEach(row => {
+      const id = row.querySelector('td').textContent;
+      if (id === courseId) {
+        row.classList.add('animate__animated', 'animate__fadeOut');
+        setTimeout(() => {
+          row.remove();
+        }, 500);
+      }
+    });
+  }
+}
+
+// Add event listener for the search input
+document.getElementById('searchInput').addEventListener('keyup', function(event) {
+  if (event.key === 'Enter') {
+    searchCourses();
+  }
+});
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+  const modal = document.getElementById('courseModal');
+  if (event.target === modal) {
+    closeModal();
+  }
+};
+
+// Initialize animation classes on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const rows = document.querySelectorAll('.courses-table tbody tr');
+  rows.forEach((row, index) => {
+    row.classList.add('animate__animated', 'animate__fadeIn');
+    row.style.animationDelay = `${0.1 * (index + 1)}s`;
+  });
+});function deleteCourse(courseId) {
+  if (confirm(`Are you sure you want to delete the course with ID ${courseId}?`)) {
+    // Here you would typically delete the course from a database via API
+    alert(`Course ${courseId} has been deleted successfully`);
+    
+    // In a real application, you would remove the course from the table
+    // For demo purposes, we'll remove the row from the table
+    const rows = document.querySelectorAll('.courses-table tbody tr');
+    rows.forEach(row => {
+      const id = row.querySelector('td').textContent;
+      if (id === courseId) {
+        row.classList.add('animate__animated', 'animate__fadeOut');
+        setTimeout(() => {
+          row.remove();
+        }, 500);
+      }
+    });
+  }
+}
+
+// Add event listener for the search input
+document.getElementById('searchInput').addEventListener('keyup', function(event) {
+  if (event.key === 'Enter') {
+    searchCourses();
+  }
+});
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+  const modal = document.getElementById('courseModal');
+  if (event.target === modal) {
+    closeModal();
+  }
+};
+
+// Initialize animation classes on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const rows = document.querySelectorAll('.courses-table tbody tr');
+  rows.forEach((row, index) => {
+    row.classList.add('animate__animated', 'animate__fadeIn');
+    row.style.animationDelay = `${0.1 * (index + 1)}s`;
+  });
+});
+</script>
 </body>
 </html>
