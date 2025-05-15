@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Assistant Training Center - Computer Studies University</title>
+    <title>REAL LMS - View Enrollments</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
-        /* Base styles */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -13,451 +15,595 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f0ff;
-            color: #5a0f91;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f8ff;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%237b2cbf' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            color: #333;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Header */
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #7b2cbf;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5a189a;
+        }
+
         header {
-            background-color: #5a0f91;
+            background: linear-gradient(135deg, #5a189a 0%, #7b2cbf 100%);
             color: white;
-            padding: 15px;
+            padding: 60px 20px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            margin-bottom: 15px;
+            animation: fadeInDown 1s ease both;
+        }
+
+        nav {
+            background-color: rgba(123, 44, 191, 0.95);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 10px 5%;
+            background-color: rgba(90, 24, 154, 0.98);
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        nav .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        nav .logo:hover {
+            transform: scale(1.05);
+        }
+
+        nav .logo i {
+            color: #e0c3fc;
         }
 
         nav ul {
             list-style: none;
-            padding: 10px 0;
             display: flex;
-            justify-content: center;
-            gap: 20px;
             flex-wrap: wrap;
+            gap: 15px;
         }
 
-        nav a {
+        nav ul li a {
             color: white;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            font-size: 0.95rem;
         }
 
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        /* Enrollments container */
-        .enrollments-container {
-            width: 95%;
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        h2 {
-            color: #5a0f91;
-            margin-bottom: 25px;
-            font-size: 1.5rem;
-        }
-
-        /* Table styles with responsive approach */
-        .table-responsive {
+        nav ul li a::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
             width: 100%;
-            overflow-x: auto;
+            height: 0;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            transition: height 0.3s ease;
+            z-index: -1;
+        }
+
+        nav ul li a:hover {
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        nav ul li a:hover::before {
+            height: 100%;
+        }
+
+        nav ul li a.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .enrollments-container {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .enrollments-container h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #5a189a;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .enrollments-container h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #7b2cbf, #e0c3fc);
+            border-radius: 2px;
+        }
+
+        .enrollment-filters {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-select {
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 1px solid #e0e0e0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f8ff;
+            color: #333;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .filter-select:focus {
+            border-color: #7b2cbf;
+            box-shadow: 0 2px 15px rgba(123, 44, 191, 0.15);
+        }
+
+        .action-button {
+            background: linear-gradient(135deg, #7b2cbf 0%, #5a189a 100%);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(123, 44, 191, 0.2);
+        }
+
+        .action-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(123, 44, 191, 0.3);
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            min-width: 500px; /* Ensures table doesn't get too narrow */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
         }
 
         th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
+            padding: 15px;
             text-align: left;
+            border-bottom: 1px solid #e0e0e0;
         }
 
         th {
-            background-color: #5a0f91;
+            background-color: #5a189a;
             color: white;
-            white-space: nowrap;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
         }
 
         tr {
-            background-color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
+            background-color: #fff;
+            transition: all 0.3s ease;
         }
 
         tr:hover {
-            background-color: #f1f1f1;
+            background-color: #f5f0ff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(123, 44, 191, 0.1);
         }
 
-        /* Button styles */
-        .action-btn, .back-btn {
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-size: 0.85em;
+            font-weight: 500;
             display: inline-block;
-            background-color: #5a0f91;
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-            margin: 5px;
-            text-decoration: none;
-            font-size: 0.9rem;
+            text-align: center;
+            min-width: 100px;
         }
 
-        .action-btn:hover, .back-btn:hover {
-            background-color: #4a0a81;
-        }
-
-        .back-btn {
-            background-color: #666;
-            margin-top: 20px;
-        }
-
-        .back-btn:hover {
-            background-color: #444;
-        }
-
-        /* Status indicators */
         .status-active {
-            background-color: #dff0d8;
-            color: #3c763d;
-            padding: 3px 8px;
-            border-radius: 4px;
+            background-color: rgba(76, 175, 80, 0.2);
+            color: #2e7d32;
+            border: 1px solid rgba(76, 175, 80, 0.4);
         }
 
         .status-pending {
-            background-color: #fcf8e3;
-            color: #8a6d3b;
-            padding: 3px 8px;
-            border-radius: 4px;
+            background-color: rgba(255, 193, 7, 0.2);
+            color: #f57f17;
+            border: 1px solid rgba(255, 193, 7, 0.4);
         }
 
-        .message {
-            color: #5a0f91;
-            margin-top: 20px;
-            font-weight: bold;
+        .status-completed {
+            background-color: rgba(33, 150, 243, 0.2);
+            color: #1565c0;
+            border: 1px solid rgba(33, 150, 243, 0.4);
         }
 
-        .auth-warning {
-            background-color: #f2dede;
-            color: #a94442;
-            padding: 15px;
-            margin-top: 20px;
-            border-radius: 4px;
+        .empty-state {
             text-align: center;
+            padding: 40px 20px;
         }
 
-        /* Footer */
-        footer {
-            background-color: #5a0f91;
+        .empty-state i {
+            font-size: 4rem;
+            color: #7b2cbf;
+            opacity: 0.5;
+            margin-bottom: 20px;
+        }
+
+        .empty-state p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .back-btn {
+            background: linear-gradient(135deg, #7b2cbf 0%, #5a189a 100%);
             color: white;
+            border: none;
+            padding: 12px 25px;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            display: block;
+            width: fit-content;
+            margin: 30px auto 0;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(123, 44, 191, 0.2);
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(123, 44, 191, 0.3);
+        }
+
+        footer {
             text-align: center;
-            padding: 15px;
-            width: 100%;
+            background: linear-gradient(135deg, #5a189a 0%, #7b2cbf 100%);
+            color: white;
+            padding: 40px 20px;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+            z-index: 1;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 20px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Responsive adjustments */
-        @media screen and (max-width: 768px) {
-            .enrollments-container {
-                width: 98%;
-                padding: 10px;
-            }
-
-            table {
-                min-width: 300px;
-            }
-
-            th, td {
-                padding: 8px;
-                font-size: 0.9rem;
-            }
-
-            .action-btn, .back-btn {
-                padding: 6px 10px;
-                font-size: 0.8rem;
-                margin: 3px;
-            }
-
-            .logo {
-                font-size: 20px;
-            }
-
-            h2 {
-                font-size: 1.3rem;
+        @media (max-width: 992px) {
+            header h1 {
+                font-size: 2.2rem;
             }
         }
 
-        @media screen and (max-width: 480px) {
-            /* Extreme mobile optimization */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
             table {
-                font-size: 0.8rem;
-            }
-
-            th, td {
-                padding: 6px;
-            }
-
-            .action-btn {
                 display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            
+            .enrollments-container {
+                padding: 20px;
+            }
+            
+            .enrollment-filters {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-select {
                 width: 100%;
-                margin: 5px 0;
             }
+        }
 
-            .logo {
-                font-size: 18px;
+        @media (max-width: 576px) {
+            header h1 {
+                font-size: 1.8rem;
             }
-
-            h2 {
-                font-size: 1.2rem;
+            
+            th, td {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+            
+            .action-button {
+                padding: 8px 16px;
+                font-size: 0.8rem;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">COMPUTER STUDIES UNIVERSITY</div>
+        <h1 class="animate__animated animate__fadeInDown"><i class="fas fa-user-graduate"></i> Student Enrollments</h1>
     </header>
 
-    <div class="enrollments-container" id="enrollmentsContainer">
-        <h2>Virtual Assistant Training Center Enrollments</h2>
-        
-        <div id="authCheck">
-            <!-- Auth check will be handled by JavaScript -->
+    <nav id="navbar">
+        <div class="logo">
+            <i class="fas fa-graduation-cap"></i> REAL LMS
         </div>
-        
-        <div id="enrollmentContent" style="display:none;">
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Student Name</th>
-                            <th>Email</th>
-                            <th>Enrollment Date</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="enrollmentsTableBody"></tbody>
-                </table>
+        <ul>
+            <li><a href="admin-dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="enrollments.html" class="active"><i class="fas fa-user-graduate"></i> Enrollments</a></li>
+            <li><a href="account_library.html"><i class="fas fa-users"></i> Accounts</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="enrollments-container">
+            <h2>Manage Student Enrollments</h2>
+            
+            <div class="enrollment-filters">
+                <select class="filter-select" id="courseFilter">
+                    <option value="all">All Courses</option>
+                    <option value="gva">General Virtual Assistant</option>
+                    <option value="advanced">Advanced Grammar Training</option>
+                    <option value="hubspot">HubSpot Essentials</option>
+                </select>
+                <select class="filter-select" id="statusFilter">
+                    <option value="all">All Status</option>
+                    <option value="active">Active</option>
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                </select>
+                <button class="action-button" onclick="applyFilters()"><i class="fas fa-filter"></i> Apply Filters</button>
             </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Student Name</th>
+                        <th>Course</th>
+                        <th>Enrollment Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="enrollmentsTableBody">
+                    <!-- Table data will be populated dynamically -->
+                </tbody>
+            </table>
 
             <div class="message" id="message"></div>
 
-            <button class="back-btn" onclick="window.location.href='admin-dashboard.html'">Back to Home</button>
+            <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i> Back to Dashboard</button>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2025 Computer Studies University. All rights reserved.</p>
+        <div class="footer-content">
+            <p class="copyright">© 2025 REAL LMS Learning Management System. All rights reserved.</p>
+        </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Check if user is admin
-            const isAdmin = localStorage.getItem('isAdmin') === 'true';
-            const authCheck = document.getElementById('authCheck');
-            const enrollmentContent = document.getElementById('enrollmentContent');
+        // Load enrollments
+        function loadEnrollments() {
+            // This would normally fetch from your database or API
+            // For now, we're using static sample data
+            const enrollments = [
+                { id: "STU001", name: "John Doe", course: "General Virtual Assistant", date: "2025-05-15", status: "active" },
+                { id: "STU002", name: "Jane Smith", course: "HubSpot Essentials", date: "2025-05-14", status: "pending" },
+                { id: "STU003", name: "Mike Johnson", course: "Advanced Grammar Training", date: "2025-05-10", status: "completed" }
+            ];
             
-            if (isAdmin) {
-                // Show enrollment content
-                enrollmentContent.style.display = 'block';
-                loadVirtualAssistantEnrollments();
-            } else {
-                // Show authentication warning
-                authCheck.innerHTML = `
-                    <div class="auth-warning">
-                        <h3>Administrator Access Required</h3>
-                        <p>You need administrator privileges to view this page.</p>
-                        <button class="action-btn" onclick="window.location.href='enrollment-form.html'">
-                            Return to Enrollment Form
-                        </button>
-                    </div>
-                `;
-            }
-        });
-
-        function loadVirtualAssistantEnrollments() {
-            const courseName = "Virtual Assistant Training Center";
-            const enrollments = getEnrollmentsForCourse(courseName);
             const tableBody = document.getElementById("enrollmentsTableBody");
-            const message = document.getElementById("message");
-            
             tableBody.innerHTML = "";
-            message.innerHTML = "";
-
+            
             if (enrollments.length === 0) {
-                message.innerHTML = `No students enrolled in ${courseName}.`;
+                // Display empty state
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="6">
+                            <div class="empty-state">
+                                <i class="fas fa-user-graduate"></i>
+                                <p>No enrollments found</p>
+                            </div>
+                        </td>
+                    </tr>
+                `;
             } else {
                 enrollments.forEach((enrollment) => {
-                    const statusClass = enrollment.status.toLowerCase() === 'active' ? 
-                                        'status-active' : 'status-pending';
-                    
-                    const row = `<tr>
-                        <td>${enrollment.studentName}</td>
-                        <td>${enrollment.email}</td>
-                        <td>${enrollment.enrollmentDate}</td>
-                        <td><span class="${statusClass}">${enrollment.status}</span></td>
-                        <td>
-                            <button class="action-btn" onclick="viewStudentDetails('${enrollment.email}')">View Details</button>
-                            <button class="action-btn" onclick="updateStatus('${enrollment.email}', '${courseName}')">
-                                ${enrollment.status === 'Active' ? 'Mark Pending' : 'Approve'}
-                            </button>
-                            <button class="action-btn" onclick="removeEnrollment('${enrollment.email}', '${courseName}')">Unenroll</button>
-                        </td>
+                    const row = `<tr class="animate__animated animate__fadeIn">
+                        <td>${enrollment.id}</td>
+                        <td>${enrollment.name}</td>
+                        <td>${enrollment.course}</td>
+                        <td>${enrollment.date}</td>
+                        <td><span class="status-badge status-${enrollment.status}">${enrollment.status.charAt(0).toUpperCase() + enrollment.status.slice(1)}</span></td>
+                        <td><button class="action-button" onclick="viewDetails('${enrollment.id}')"><i class="fas fa-eye"></i> View</button></td>
                     </tr>`;
                     tableBody.innerHTML += row;
                 });
             }
         }
 
-        function getEnrollmentsForCourse(courseName) {
-            // Get enrollments from localStorage
-            const enrollments = JSON.parse(localStorage.getItem("courseEnrollments")) || {};
+        // Apply filters to enrollments
+        function applyFilters() {
+            const courseFilter = document.getElementById('courseFilter').value;
+            const statusFilter = document.getElementById('statusFilter').value;
             
-            // Return enrollments for the selected course or an empty array if none
-            return enrollments[courseName] || [];
+            // Show success message with animation
+            const message = document.getElementById("message");
+            message.innerHTML = '<div class="animate__animated animate__fadeIn">Filters applied successfully</div>';
+            setTimeout(() => {
+                message.innerHTML = '';
+            }, 3000);
+            
+            // In a real application, you would filter the data here
+            // For now, we're just reloading the sample data
+            loadEnrollments();
         }
 
-        function viewStudentDetails(email) {
-            // Get users from localStorage
-            const users = JSON.parse(localStorage.getItem("users")) || [];
-            const student = users.find(user => user.email === email);
-            
-            if (student) {
-                alert(`Student Details:\nName: ${student.name}\nEmail: ${student.email}\nRegistered: ${student.registeredAt || 'N/A'}`);
+        // View enrollment details
+        function viewDetails(studentId) {
+            // In a real application, you would navigate to a details page or show a modal
+            alert(`Viewing details for student ${studentId}`);
+        }
+
+        // Go back to dashboard
+        function goBack() {
+            window.location.href = "admin-dashboard.html";
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
             } else {
-                alert("Student details not found.");
+                navbar.classList.remove('scrolled');
             }
-        }
+        });
 
-        function updateStatus(email, courseName) {
-            // Get current enrollments
-            const enrollments = JSON.parse(localStorage.getItem("courseEnrollments")) || {};
-            
-            if (enrollments[courseName]) {
-                // Find the enrollment to update
-                const enrollmentIndex = enrollments[courseName].findIndex(e => e.email === email);
-                
-                if (enrollmentIndex !== -1) {
-                    // Toggle status
-                    const currentStatus = enrollments[courseName][enrollmentIndex].status;
-                    enrollments[courseName][enrollmentIndex].status = 
-                        currentStatus === 'Active' ? 'Pending' : 'Active';
-                    
-                    // Update localStorage
-                    localStorage.setItem("courseEnrollments", JSON.stringify(enrollments));
-                    
-                    // Refresh the table
-                    loadVirtualAssistantEnrollments();
-                }
-            }
-        }
-
-        function removeEnrollment(email, courseName) {
-            if (confirm(`Are you sure you want to unenroll this student from ${courseName}?`)) {
-                // Get current enrollments
-                const enrollments = JSON.parse(localStorage.getItem("courseEnrollments")) || {};
-                
-                if (enrollments[courseName]) {
-                    // Filter out the enrollment to remove
-                    enrollments[courseName] = enrollments[courseName].filter(e => e.email !== email);
-                    
-                    // Update localStorage
-                    localStorage.setItem("courseEnrollments", JSON.stringify(enrollments));
-                    
-                    alert("Student unenrolled successfully.");
-                    // Refresh the table
-                    loadVirtualAssistantEnrollments();
-                }
-            }
-        }
-
-        // Populate with mock data for demonstration purposes
-        function populateMockData() {
-            // Get existing data or create new object
-            const existingEnrollments = JSON.parse(localStorage.getItem("courseEnrollments")) || {};
-            
-            // Add Virtual Assistant Training Center enrollments if they don't exist
-            if (!existingEnrollments["Virtual Assistant Training Center"]) {
-                existingEnrollments["Virtual Assistant Training Center"] = [
-                    {
-                        studentName: "Alex Rivera",
-                        email: "alex@example.com",
-                        enrollmentDate: "2025-03-15",
-                        status: "Active"
-                    },
-                    {
-                        studentName: "Jordan Kim",
-                        email: "jordan@example.com",
-                        enrollmentDate: "2025-03-20",
-                        status: "Pending"
-                    },
-                    {
-                        studentName: "Taylor Morgan",
-                        email: "taylor@example.com",
-                        enrollmentDate: "2025-03-22",
-                        status: "Active"
-                    }
-                ];
-                
-                // Update localStorage
-                localStorage.setItem("courseEnrollments", JSON.stringify(existingEnrollments));
-            }
-            
-            // Create mock user data if none exists or update existing users
-            const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
-            
-            const vaStudents = [
-                {
-                    name: "Alex Rivera",
-                    email: "alex@example.com",
-                    registeredAt: "2025-03-10"
-                },
-                {
-                    name: "Jordan Kim",
-                    email: "jordan@example.com",
-                    registeredAt: "2025-03-18"
-                },
-                {
-                    name: "Taylor Morgan",
-                    email: "taylor@example.com",
-                    registeredAt: "2025-03-19"
-                }
-            ];
-            
-            // Add VA students if they don't exist in the users array
-            vaStudents.forEach(student => {
-                if (!existingUsers.some(user => user.email === student.email)) {
-                    existingUsers.push(student);
-                }
-            });
-            
-            localStorage.setItem("users", JSON.stringify(existingUsers));
-            
-            // Set admin access for demonstration
-            localStorage.setItem("isAdmin", "true");
-        }
-
-        // Run mock data population when loading the page
-        populateMockData();
+        // Load enrollments when the page loads
+        document.addEventListener("DOMContentLoaded", function() {
+            loadEnrollments();
+        });
     </script>
 </body>
 </html>
