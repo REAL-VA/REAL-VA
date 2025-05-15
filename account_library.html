@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="Screenshot 2025-05-13 102633.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REAL VA - Accounts Library</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f8ff;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%237b2cbf' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #7b2cbf;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5a189a;
+        }
+
+        header {
+            background: linear-gradient(135deg, #5a189a 0%, #7b2cbf 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            margin-bottom: 15px;
+            animation: fadeInDown 1s ease both;
+        }
+
+        nav {
+            background-color: rgba(123, 44, 191, 0.95);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 10px 5%;
+            background-color: rgba(90, 24, 154, 0.98);
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        nav .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        nav .logo:hover {
+            transform: scale(1.05);
+        }
+
+        nav .logo i {
+            color: #e0c3fc;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            font-size: 0.95rem;
+        }
+
+        nav ul li a::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            transition: height 0.3s ease;
+            z-index: -1;
+        }
+
+        nav ul li a:hover {
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        nav ul li a:hover::before {
+            height: 100%;
+        }
+
+        nav ul li a.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .accounts-container {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .accounts-container h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #5a189a;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .accounts-container h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #7b2cbf, #e0c3fc);
+            border-radius: 2px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        th {
+            background-color: #5a189a;
+            color: white;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        tr {
+            background-color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        tr:hover {
+            background-color: #f5f0ff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(123, 44, 191, 0.1);
+        }
+
+        .delete-btn {
+            background: linear-gradient(135deg, #7b2cbf 0%, #5a189a 100%);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .delete-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(123, 44, 191, 0.3);
+        }
+
+        .back-btn {
+            background: linear-gradient(135deg, #7b2cbf 0%, #5a189a 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            display: block;
+            width: fit-content;
+            margin: 30px auto 0;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(123, 44, 191, 0.3);
+        }
+
+        .message {
+            color: #5a189a;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            background: linear-gradient(135deg, #5a189a 0%, #7b2cbf 100%);
+            color: white;
+            padding: 40px 20px;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+            z-index: 1;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 20px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Empty state styling */
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .empty-state i {
+            font-size: 4rem;
+            color: #7b2cbf;
+            opacity: 0.5;
+            margin-bottom: 20px;
+        }
+
+        .empty-state p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            
+            .accounts-container {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            th, td {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+            
+            .delete-btn {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="animate__animated animate__fadeInDown"><i class="fas fa-user-shield"></i> Accounts Library</h1>
+    </header>
+
+    <nav id="navbar">
+        <div class="logo">
+            <i class="fas fa-graduation-cap"></i> REAL VA
+        </div>
+        <ul>
+            <li><a href="admin-dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="account_library.html" class="active"><i class="fas fa-users"></i> Accounts</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="accounts-container">
+            <h2>Registered Accounts</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Registered At</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="accountsTableBody">
+                    <!-- Table data will be populated by JavaScript -->
+                </tbody>
+            </table>
+
+            <div class="message" id="message"></div>
+
+            <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i> Back to Dashboard</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">© 2025 REAL VA Learning Management System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Load accounts from localStorage
+        function loadAccounts() {
+            const accountsLibrary = JSON.parse(localStorage.getItem("accountsLibrary")) || [];
+            const tableBody = document.getElementById("accountsTableBody");
+            const message = document.getElementById("message");
+            tableBody.innerHTML = "";
+            message.innerHTML = ""; // Clear previous messages
+
+            if (accountsLibrary.length === 0) {
+                // Display empty state
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="5">
+                            <div class="empty-state">
+                                <i class="fas fa-users-slash"></i>
+                                <p>No accounts found in the library</p>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            } else {
+                accountsLibrary.forEach((account, index) => {
+                    const row = `<tr class="animate__animated animate__fadeIn">
+                        <td>${account.name}</td>
+                        <td>${account.email}</td>
+                        <td>${account.password}</td>
+                        <td>${account.registeredAt}</td>
+                        <td><button class="delete-btn" onclick="deleteAccount(${index})"><i class="fas fa-trash-alt"></i> Delete</button></td>
+                    </tr>`;
+                    tableBody.innerHTML += row;
+                });
+            }
+        }
+
+        // Delete account function
+        function deleteAccount(index) {
+            if (confirm("Are you sure you want to delete this account?")) {
+                let accountsLibrary = JSON.parse(localStorage.getItem("accountsLibrary")) || [];
+                let users = JSON.parse(localStorage.getItem("users")) || [];
+
+                const accountToDelete = accountsLibrary[index];
+
+                // Remove from accountsLibrary
+                accountsLibrary.splice(index, 1);
+                localStorage.setItem("accountsLibrary", JSON.stringify(accountsLibrary));
+
+                // Remove from users list
+                users = users.filter(user => user.email !== accountToDelete.email);
+                localStorage.setItem("users", JSON.stringify(users));
+
+                // Show success message with animation
+                const message = document.getElementById("message");
+                message.innerHTML = '<div class="animate__animated animate__fadeIn">Account deleted successfully</div>';
+                setTimeout(() => {
+                    message.innerHTML = '';
+                }, 3000);
+                
+                // Reload the accounts table
+                loadAccounts();
+            }
+        }
+
+        // Go back to dashboard
+        function goBack() {
+            window.location.href = "admin-dashboard.html";
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Sample function to add accounts for testing (remove in production)
+        function addSampleAccounts() {
+            const sampleAccounts = [
+                { name: "John Doe", email: "john@example.com", password: "password123", registeredAt: new Date().toLocaleString() },
+                { name: "Jane Smith", email: "jane@example.com", password: "password456", registeredAt: new Date().toLocaleString() },
+                { name: "Michael Johnson", email: "michael@example.com", password: "pass789", registeredAt: new Date().toLocaleString() }
+            ];
+            localStorage.setItem("accountsLibrary", JSON.stringify(sampleAccounts));
+            loadAccounts();
+        }
+
+        // Load accounts when the page loads
+        document.addEventListener("DOMContentLoaded", function() {
+            loadAccounts();
+            // Uncomment the line below to add sample accounts for testing
+            // addSampleAccounts();
+        });
+    </script>
+</body>
+</html>
