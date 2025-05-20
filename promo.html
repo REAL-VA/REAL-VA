@@ -1,76 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coming Soon</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coming Soon - REAL VA Training Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="icon.png">
+
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     body {
-      height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f8ff;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%237b2cbf' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+      color: #333;
+      line-height: 1.6;
+      min-height: 100vh;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #6a0dad, #2b094f);
-      font-family: 'Segoe UI', sans-serif;
-      color: #fff;
-      overflow: hidden;
-      position: relative;
+      flex-direction: column;
     }
 
-    .container {
+    header {
+      background: linear-gradient(135deg, #5a189a 0%, #7b2cbf 100%);
+      color: white;
+      padding: 60px 20px;
       text-align: center;
-      animation: fadeIn 2s ease-in-out;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
       z-index: 1;
     }
 
-    h1 {
+    header h1 {
       font-size: 3.5rem;
-      margin-bottom: 20px;
-      background: linear-gradient(90deg, #f8f8f8, #c49aff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: bounce 2s infinite;
-    }
-
-    p {
-      font-size: 1.2rem;
-      color: #dddddd;
-      animation: fadeInUp 3s ease-in-out;
-    }
-
-    .stars {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: url('https://media.giphy.com/media/l3vR85PnGsBwu1PFK/giphy.gif');
-      background-size: cover;
-      opacity: 0.2;
-      z-index: 0;
-    }
-
-    .back-button {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      padding: 10px 20px;
-      background-color: #ffffff;
-      color: #6a0dad;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
+      font-weight: 700;
+      letter-spacing: 2px;
+      position: relative;
       z-index: 2;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     }
 
-    .back-button:hover {
-      background-color: #e0d1ff;
+    nav {
+      background-color: #7b2cbf;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      flex-wrap: wrap;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.3s ease;
+      text-decoration: none;
+    }
+
+    nav .logo:hover {
+      transform: scale(1.05);
+    }
+
+    nav .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    nav ul li a::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      transition: height 0.3s ease;
+      z-index: -1;
+    }
+
+    nav ul li a:hover {
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    nav ul li a:hover::before {
+      height: 100%;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
+    }
+
+    .coming-soon-container {
+      text-align: center;
+      max-width: 800px;
+      animation: fadeIn 2s ease-in-out;
     }
 
     @keyframes fadeIn {
@@ -97,14 +166,245 @@
         transform: translateY(0);
       }
     }
+
+    .coming-soon-container h2 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      color: #5a189a;
+      animation: bounce 2s infinite;
+    }
+
+    .coming-soon-container p {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 30px;
+      animation: fadeInUp 3s ease-in-out;
+    }
+
+    .coming-soon-text {
+      font-size: 4rem;
+      font-weight: bold;
+      color: #7b2cbf;
+      margin: 40px 0;
+      letter-spacing: 4px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      animation: bounce 2s infinite;
+    }
+
+    .notify-btn {
+      padding: 12px 30px;
+      font-size: 1rem;
+      border-radius: 30px;
+      border: none;
+      background: linear-gradient(135deg, #7b2cbf 0%, #5a189a 100%);
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .notify-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: all 0.6s ease;
+      z-index: -1;
+    }
+
+    .notify-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(123, 44, 191, 0.3);
+    }
+
+    .notify-btn:hover::before {
+      left: 100%;
+    }
+
+    .notify-form {
+      display: flex;
+      justify-content: center;
+      margin: 30px 0;
+      gap: 10px;
+    }
+
+    .notify-form input {
+      padding: 12px 15px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 2px solid #e6e6ff;
+      width: 100%;
+      max-width: 300px;
+      transition: all 0.3s ease;
+      background-color: #f9f8ff;
+    }
+
+    .notify-form input:focus {
+      outline: none;
+      border-color: #7b2cbf;
+      box-shadow: 0 0 0 3px rgba(123, 44, 191, 0.1);
+      background-color: #fff;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+      justify-content: center;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background-color: #7b2cbf;
+      color: white;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      font-size: 1.2rem;
+    }
+
+    .social-links a:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(123, 44, 191, 0.3);
+      background-color: #5a189a;
+    }
+
+    footer {
+      text-align: center;
+      background: linear-gradient(135deg, #5a189a 0%, #7b2cbf 100%);
+      color: white;
+      padding: 30px 20px;
+      position: relative;
+      overflow: hidden;
+      height: 150px;
+    }
+
+    footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+      z-index: 1;
+    }
+
+    footer p {
+      position: relative;
+      z-index: 2;
+    }
+
+    .back-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-top: 20px;
+    }
+
+    .back-button:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      nav ul {
+        justify-content: center;
+      }
+      
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      .coming-soon-container h2 {
+        font-size: 2.5rem;
+      }
+      
+      .coming-soon-text {
+        font-size: 3rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .coming-soon-text {
+        font-size: 2.5rem;
+      }
+
+      .notify-form {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="stars"></div>
-  <a href="index.html" class="back-button">← Back</a>
-  <div class="container">
-    <h1>Soon to be Available</h1>
-    <p>We're working hard behind the scenes. Stay tuned!</p>
-  </div>
+  <header>
+    <h1>COMING SOON</h1>
+  </header>
+
+  <nav>
+    <a href="index.html" class="logo">
+      <div class="logo">
+        <img src="image.png" alt="REAL LMS Logo" style="height: 120px; width: auto;">
+      </div>
+    </a>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+      <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+      <li><a href="signin.html"><i class="fas fa-user"></i> SIGN IN</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="coming-soon-container">
+      <h2>We're Working on Something Amazing</h2>
+      <p>Our new feature is almost ready. We're putting the finishing touches on it now. Stay tuned for the big reveal!</p>
+      
+      <div class="coming-soon-text">COMING SOON</div>
+      
+      <form class="notify-form">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit" class="notify-btn">Notify Me</button>
+      </form>
+      
+      <p>Want to know when we launch? Sign up for our notifications.</p>
+      
+      <div class="social-links">
+        <a href="https://www.facebook.com/profile.php?id=61575781753909" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/realvatrngcntr/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/15551234567" target="_blank"><i class="fab fa-youtube"></i></a>
+      </div>
+      
+      <a href="index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i> Back to Home
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 REAL VA Training Center. All rights reserved.</p>
+    <img src="MINE.png" alt="REAL LMS Logo" style="height: 90px; width: auto;">
+  </footer>
 </body>
 </html>
