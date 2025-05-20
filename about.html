@@ -808,6 +808,28 @@
                 font-size: 1.3rem;
             }
         }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 50%;
+            top: 150px;
+            transform: translateX(-50%);
+            background-color: #6e2aab;
+            color: #fff;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+        }
+
+        .modal.show {
+            display: block;
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -895,18 +917,65 @@
     </section>
 
     <section id="contact">
+        <div id="notificationModal" class="modal">
+            <div class="modal-content" id="modalMessage"></div>
+        </div>
+
         <div class="section-container">
             <h2>Get In Touch</h2>
-            <div class="feedback-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" required></textarea>
+            <form id="contactForm" class="feedback-form">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Your Message" required></textarea>
                 <button type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
-            </div>
+            </form>
+
+            <script type="text/javascript"
+                    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+            </script>
+                <script type="module">
+                emailjs.init("GTmQHVKKWi60mGmvm");
+
+                function showModal(message) {
+                    const modal = document.getElementById("notificationModal");
+                    const content = document.getElementById("modalMessage");
+                    content.textContent = message;
+                    modal.classList.add("show");
+
+                    setTimeout(() => {
+                        modal.classList.remove("show");
+                        setTimeout(() => {
+                            modal.style.display = "none";
+                        }, 400);
+                    }, 3000);
+                }
+
+                document.getElementById('contactForm').addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const message = document.getElementById('message').value;
+
+                    emailjs.send("service_9l3y0t8", "template_imuvvde", {
+                        name: name,
+                        email: email,
+                        message: message
+                    })
+                    .then(() => {
+                        showModal("Message sent successfully!");
+                        document.getElementById('contactForm').reset();
+                    }, (error) => {
+                        showModal("Failed to send message. Try again later.");
+                        console.error(error);
+                    });
+                });
+                </script>
+
+
             <button class="back-button" onclick="goBack()"><i class="fas fa-arrow-left"></i> Back to Home</button>
         </div>
     </section>
-
     <footer>
         <div class="footer-content">
             <div class="footer-logo">

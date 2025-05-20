@@ -436,6 +436,28 @@
         flex-direction: column;
       }
     }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 50%;
+            top: 250px;
+            transform: translateX(-50%);
+            background-color: #6e2aab;
+            color: #fff;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+        }
+
+        .modal.show {
+            display: block;
+            opacity: 1;
+        }
   </style>
 </head>
 <body>
@@ -501,21 +523,71 @@
         </div>
       </div>
       
+      <div id="notificationModal" class="modal">
+        <div class="modal-content" id="modalMessage"></div>
+      </div>
+
       <!-- Right Container: Send Message Form -->
       <div class="section-box">
         <h3>Send Message</h3>
-        <form class="contact-form">
-          <input type="text" placeholder="Your Name" required>
-          <input type="email" placeholder="Your Email" required>
-          <input type="tel" placeholder="Your Phone (optional)">
-          <input type="text" placeholder="Subject">
-          <textarea rows="5" placeholder="Your Message" required></textarea>
+        <form class="contact-form" id="contactForm">
+          <input type="text" id="name" placeholder="Your Name" required>
+          <input type="email" id="email" placeholder="Your Email" required>
+          <input type="tel" id="phone" placeholder="Your Phone (optional)">
+          <input type="text" id="subject" placeholder="Subject">
+          <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
           <button type="submit">
-            <i class="fas fa-paper-plane"></i> Send Messa ge
+            <i class="fas fa-paper-plane"></i> Send Message
           </button>
         </form>
       </div>
-    </div>
+            <script type="text/javascript"
+                    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+            </script>
+<script type="module">
+
+emailjs.init("GTmQHVKKWi60mGmvm"); // Replace with your public key
+
+function showModal(message) {
+  const modal = document.getElementById("notificationModal");
+  const content = document.getElementById("modalMessage");
+  content.textContent = message;
+  modal.classList.add("show");
+
+  setTimeout(() => {
+    modal.classList.remove("show");
+    setTimeout(() => {
+      modal.style.display = "none";
+    }, 400);
+  }, 3000);
+}
+
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const phone = document.getElementById('phone').value;
+  const subject = document.getElementById('subject').value;
+  const message = document.getElementById('message').value;
+
+  emailjs.send("service_9l3y0t8", "template_urdnlid", {
+    name: name,
+    email: email,
+    phone: phone,
+    subject: subject,
+    message: message
+  })
+  .then(() => {
+    showModal("Message sent successfully!");
+    document.getElementById('contactForm').reset();
+  }, (error) => {
+    showModal("Failed to send message. Try again later.");
+    console.error(error);
+  });
+});
+</script>
+
     
 
   </section>
